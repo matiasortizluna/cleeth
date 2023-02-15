@@ -15,7 +15,7 @@ class StopWatchManager : ObservableObject{
     
     func start(){
         timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
-            if(self.timeRemaining != 1){
+            if(self.timeRemaining>=0 && self.timeRemaining<661){
                 self.timeRemaining -= 1
             }
         })
@@ -31,13 +31,13 @@ class StopWatchManager : ObservableObject{
     }
     
     func add(){
-        if(self.timeRemaining != 1){
+        if(self.timeRemaining<600){
             self.timeRemaining += 60
         }
     }
     
     func reduce(){
-        if(self.timeRemaining != 1){
+        if(self.timeRemaining>61){
             self.timeRemaining -= 60
         }
     }
@@ -70,7 +70,7 @@ struct ContentView: View {
                 Spacer()
                 
                 Text(timeString(time:stopWatchManager.timeRemaining))
-                    .frame(width: 250, height: 250, alignment: .center)
+                    .frame(width: 200, height: 200, alignment: .center)
                     .padding()
                     .foregroundColor(Color("Cleeth Green"))
                     .font(.system(size: 35.0))
@@ -83,75 +83,113 @@ struct ContentView: View {
                 Spacer()
                 
                 
-                Button( action: {
-                    if(button == false){
-                        print("Start")
-                        buttonString = "Stop"
-                        stopWatchManager.start()
-                        timeRunning.toggle()
-                        button.toggle()
-                    }else{
-                        print("Stop")
-                        buttonString = "Start"
-                        stopWatchManager.stop()
-                        timeRunning.toggle()
-                        button.toggle()
-                    }
-                }){
-                    Text(buttonString)
-                        .padding(2.0)
-                        .font(.system(.title2))
-                        .frame(width: 250.0,height: 50.0)
-                        .foregroundColor(.white)
-                        .background(Color("Cleeth Green"))
-                        .cornerRadius(40)
-                }
-                .padding(5.0)
                 
-                Button(action: {
-                    buttonString = "Start"
-                    button = false
-                    timeRunning = false
-                    stopWatchManager.restart()
-                }){
-                    Text("Restart")
-                        .padding(2.0)
-                        .font(.system(.title2))
-                        .frame(width: 250.0,height: 50.0)
-                        .foregroundColor(.white)
-                        .background(.red)
-                        .cornerRadius(40)
+                
+                VStack{
+                
+                    if !self.timeRunning {
+                        HStack{
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                if(timeRunning == false){
+                                    stopWatchManager.reduce()
+                                    print("-")
+                                }
+                            }){
+                                Text("-")
+                                    .padding(2.0)
+                                    .font(.system(.title))
+                                    .frame(width: 50.0,height: 50.0)
+                                    .foregroundColor(Color("Cleeth Green"))
+                                    .background(.white)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color("Cleeth Green"), lineWidth: 3)
+                                    )
+                            }
+                            .padding(5.0)
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                if(timeRunning == false){
+                                    stopWatchManager.add()
+                                    print("+")
+                                }
+                            }){
+                                Text("+")
+                                    .padding(2.0)
+                                .font(.system(.title))
+                                    .frame(width: 50.0,height: 50.0)
+                                    .foregroundColor(Color("Cleeth Green"))
+                                    .background(.white)
+                                    .overlay(
+                                        Circle()
+                                            .stroke(Color("Cleeth Green"), lineWidth: 3)
+                                    )
+                            }.padding(5.0)
+                            
+                            Spacer()
+                            
+                        }
+                        .padding(.bottom,30)
+                    }
+                    
+                    Button( action: {
+                        if(button == false){
+                            print("Start")
+                            buttonString = "Stop"
+                            stopWatchManager.start()
+                            timeRunning.toggle()
+                            button.toggle()
+                        }else{
+                            print("Stop")
+                            buttonString = "Start"
+                            stopWatchManager.stop()
+                            timeRunning.toggle()
+                            button.toggle()
+                        }
+                        
+                    }){
+                        Text(buttonString)
+                            .padding(2.0)
+                            .font(.system(.title2))
+                            .frame(width: 250.0,height: 50.0)
+                            .foregroundColor(.white)
+                            .background(Color("Cleeth Green"))
+                            .cornerRadius(40)
+                    }
+                    .padding(5.0)
+                    
+                    if !self.timeRunning {
+                        Button(action: {
+                            buttonString = "Start"
+                            button = false
+                            timeRunning = false
+                            stopWatchManager.restart()
+                        }){
+                            Text("Restart")
+                                .padding(2.0)
+                                .font(.system(.title2))
+                                .frame(width: 250.0,height: 50.0)
+                                .foregroundColor(.white)
+                                .background(.red)
+                                .cornerRadius(40)
+                        }
+                        .padding(5.0)
+                    }
+                    
                 }
-                .padding(5.0)
+                
+                
+                
                 
                 Spacer()
                 
-                /*
-                VStack(){
-                    HStack(){
                     
-                    
-                        
-                        Button("+", action: {
-                            if(timeRunning == false){
-                                stopWatchManager.add()
-                                print("+")
-                            }
-                        })
-                        
-                        
-                        
-                        Button("-", action: {
-                            if(timeRunning == false){
-                                stopWatchManager.reduce()
-                                print("-")
-                            }
-                        })
-                        
-                        
-                        
-                    }
-                    
+                    /*
                     HStack(){
                         Picker("", selection: $stopWatchManager.timeRemaining){
                             ForEach(minutes, id: \.self){
@@ -160,9 +198,10 @@ struct ContentView: View {
                         }
                         .pickerStyle(.wheel)
                     }
-                }
+                     */
+            
                 
-                */
+                
                 
                 /*
                 VStack{
@@ -244,3 +283,4 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
