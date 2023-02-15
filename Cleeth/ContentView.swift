@@ -66,7 +66,23 @@ struct ContentView: View {
                     .fontWeight(.bold)
                     .foregroundColor(Color("Cleeth Green"))
                     .padding(5)
-
+                
+                HStack{
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                        print("Info button pressed")
+                    }){
+                        Image(systemName: "info.circle")
+                                .font(.title)
+                                .foregroundColor(Color("Cleeth Green"))
+                    }
+                    .padding(.trailing,20)
+                    
+                    
+                }
+                
                 Spacer()
                 
                 Text(timeString(time:stopWatchManager.timeRemaining))
@@ -187,6 +203,8 @@ struct ContentView: View {
                 
                 
                 Spacer()
+                
+               
                 
                     
                     /*
