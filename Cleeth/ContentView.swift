@@ -54,20 +54,36 @@ struct ContentView: View {
     
     var body: some View {
         
-        
         ZStack(){
             
             Color.white
             
             VStack(){
                 
+                //U+1FAA5
+                Text("Cleeth \u{1FAA5}")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(Color("Cleeth Green"))
+                    .padding(5)
+
                 Spacer()
                 
                 Text(timeString(time:stopWatchManager.timeRemaining))
+                    .frame(width: 250, height: 250, alignment: .center)
+                    .padding()
+                    .foregroundColor(Color("Cleeth Green"))
+                    .font(.system(size: 35.0))
+                    .overlay(
+                        Circle()
+                        .stroke(Color("Cleeth Green"), lineWidth: 5)
+                        .padding(5)
+                    )
                 
                 Spacer()
                 
-                Button(buttonString, action: {
+                
+                Button( action: {
                     if(button == false){
                         print("Start")
                         buttonString = "Stop"
@@ -81,23 +97,40 @@ struct ContentView: View {
                         timeRunning.toggle()
                         button.toggle()
                     }
-                })
+                }){
+                    Text(buttonString)
+                        .padding(2.0)
+                        .font(.system(.title2))
+                        .frame(width: 250.0,height: 50.0)
+                        .foregroundColor(.white)
+                        .background(Color("Cleeth Green"))
+                        .cornerRadius(40)
+                }
+                .padding(5.0)
                 
-                Spacer()
-                
-                Button("Restart", action: {
+                Button(action: {
                     buttonString = "Start"
                     button = false
                     timeRunning = false
                     stopWatchManager.restart()
-                })
+                }){
+                    Text("Restart")
+                        .padding(2.0)
+                        .font(.system(.title2))
+                        .frame(width: 250.0,height: 50.0)
+                        .foregroundColor(.white)
+                        .background(.red)
+                        .cornerRadius(40)
+                }
+                .padding(5.0)
                 
                 Spacer()
                 
+                /*
                 VStack(){
                     HStack(){
                     
-                        Spacer()
+                    
                         
                         Button("+", action: {
                             if(timeRunning == false){
@@ -106,7 +139,7 @@ struct ContentView: View {
                             }
                         })
                         
-                        Spacer()
+                        
                         
                         Button("-", action: {
                             if(timeRunning == false){
@@ -115,7 +148,7 @@ struct ContentView: View {
                             }
                         })
                         
-                        Spacer()
+                        
                         
                     }
                     
@@ -129,8 +162,9 @@ struct ContentView: View {
                     }
                 }
                 
-                Spacer()
+                */
                 
+                /*
                 VStack{
                     HStack {
                         Button("Request Permission") {
@@ -183,8 +217,9 @@ struct ContentView: View {
                     }
                     
                 }
-                
+                 */
             }
+                 
             
         }
         
