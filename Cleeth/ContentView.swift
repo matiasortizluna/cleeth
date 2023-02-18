@@ -7,43 +7,6 @@
 
 import SwiftUI
 
-class StopWatchManager : ObservableObject{
-    
-    @Published var timeRemaining = 3*60
-    
-    var timer = Timer()
-    
-    func start(){
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
-            if(self.timeRemaining>=0 && self.timeRemaining<661){
-                self.timeRemaining -= 1
-            }
-        })
-    }
-    
-    func stop(){
-        timer.invalidate()
-    }
-    
-    func restart(){
-        timer.invalidate()
-        self.timeRemaining = 3*60
-    }
-    
-    func add(){
-        if(self.timeRemaining<600){
-            self.timeRemaining += 60
-        }
-    }
-    
-    func reduce(){
-        if(self.timeRemaining>61){
-            self.timeRemaining -= 60
-        }
-    }
-}
-
-
 struct ContentView: View {
     
     var body: some View {
@@ -60,17 +23,15 @@ struct ContentView: View {
                     Label("Brush", systemImage: "face.smiling")
                 }
             
-            InformationView()
-                .tabItem {
-                    Label("Info", systemImage: "info.circle")
-                }
             
+            SettingsView()
+                .tabItem {
+                    Label("Settings", systemImage: "gear")
+                }            
+
         }
         
     }
-    
-    
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

@@ -18,137 +18,129 @@ struct BrushView: View {
     
     var body: some View {
         
-        ZStack(){
+        VStack{
+            //U+1FAA5
+            Text("Cleeth \u{1FAA5}")
+                .font(.largeTitle)
+                .fontWeight(.bold)
+                .foregroundColor(Color("Cleeth Green"))
+                .padding(5)
             
-            Color.white
-            
-            VStack(){
-                
-                VStack{
-                    //U+1FAA5
-                    Text("Cleeth \u{1FAA5}")
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .foregroundColor(Color("Cleeth Green"))
+            Text(timeString(time:stopWatchManager.timeRemaining))
+                .frame(width: 200, height: 200, alignment: .center)
+                .padding()
+                .foregroundColor(Color("Cleeth Green"))
+                .font(.system(size: 35.0))
+                .overlay(
+                    Circle()
+                        .stroke(Color("Cleeth Green"), lineWidth: 5)
                         .padding(5)
-                    
-                    Spacer()
-                    
-                    Text(timeString(time:stopWatchManager.timeRemaining))
-                        .frame(width: 200, height: 200, alignment: .center)
-                        .padding()
-                        .foregroundColor(Color("Cleeth Green"))
-                        .font(.system(size: 35.0))
-                        .overlay(
-                            Circle()
-                                .stroke(Color("Cleeth Green"), lineWidth: 5)
-                                .padding(5)
-                        )
-                }
+                )
+            
+            VStack{
                 
-                Spacer()
-                
-                VStack{
+                HStack{
                     
                     if !self.timeRunning {
-                        HStack{
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                if(timeRunning == false){
-                                    stopWatchManager.reduce()
-                                    print("-")
-                                }
-                            }){
-                                Text("-")
-                                    .padding(2.0)
-                                    .font(.system(.title))
-                                    .frame(width: 50.0,height: 50.0)
-                                    .foregroundColor(Color("Cleeth Green"))
-                                    .background(.white)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color("Cleeth Green"), lineWidth: 3)
-                                    )
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            if(timeRunning == false){
+                                stopWatchManager.reduce()
+                                print("-")
                             }
-                            .padding(5.0)
-                            
-                            Spacer()
-                            
-                            Button(action: {
-                                if(timeRunning == false){
-                                    stopWatchManager.add()
-                                    print("+")
-                                }
-                            }){
-                                Text("+")
-                                    .padding(2.0)
-                                    .font(.system(.title))
-                                    .frame(width: 50.0,height: 50.0)
-                                    .foregroundColor(Color("Cleeth Green"))
-                                    .background(.white)
-                                    .overlay(
-                                        Circle()
-                                            .stroke(Color("Cleeth Green"), lineWidth: 3)
-                                    )
-                            }.padding(5.0)
-                            
-                            Spacer()
-                            
+                        }){
+                            Text("-")
+                                .padding(2.0)
+                                .font(.system(.title))
+                                .frame(width: 50.0,height: 50.0)
+                                .foregroundColor(Color("Cleeth Green"))
+                                .background(.white)
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color("Cleeth Green"), lineWidth: 3)
+                                )
                         }
-                        .padding(.bottom,30)
+                        .padding(5.0)
+                        
+                        Spacer()
+                        
+                        Button(action: {
+                            if(timeRunning == false){
+                                stopWatchManager.add()
+                                print("+")
+                            }
+                        }){
+                            Text("+")
+                                .padding(2.0)
+                                .font(.system(.title))
+                                .frame(width: 50.0,height: 50.0)
+                                .foregroundColor(Color("Cleeth Green"))
+                                .background(.white)
+                                .overlay(
+                                    Circle()
+                                        .stroke(Color("Cleeth Green"), lineWidth: 3)
+                                )
+                        }.padding(5.0)
+                        
+                        Spacer()
+                        
                     }
                     
-                    VStack{
-                        Button( action: {
-                            if(button == false){
-                                print("Start")
-                                buttonString = "Stop"
-                                stopWatchManager.start()
-                                timeRunning.toggle()
-                                button.toggle()
-                            }else{
-                                print("Stop")
-                                buttonString = "Start"
-                                stopWatchManager.stop()
-                                timeRunning.toggle()
-                                button.toggle()
-                            }
-                            
+                }
+                
+                VStack{
+                    
+                    Button( action: {
+                        if(button == false){
+                            print("Start")
+                            buttonString = "Stop"
+                            stopWatchManager.start()
+                            timeRunning.toggle()
+                            button.toggle()
+                        }else{
+                            print("Stop")
+                            buttonString = "Start"
+                            stopWatchManager.stop()
+                            timeRunning.toggle()
+                            button.toggle()
+                        }
+                        
+                    }){
+                        Text(buttonString)
+                            .padding(2.0)
+                            .font(.system(.title2))
+                            .frame(width: 250.0,height: 50.0)
+                            .foregroundColor(.white)
+                            .background(Color("Cleeth Green"))
+                            .cornerRadius(40)
+                    }
+                    .padding(5.0)
+                    
+                    if !self.timeRunning {
+                        Button(action: {
+                            buttonString = "Start"
+                            button = false
+                            timeRunning = false
+                            stopWatchManager.restart()
                         }){
-                            Text(buttonString)
+                            Text("Restart")
                                 .padding(2.0)
                                 .font(.system(.title2))
                                 .frame(width: 250.0,height: 50.0)
                                 .foregroundColor(.white)
-                                .background(Color("Cleeth Green"))
+                                .background(.red)
                                 .cornerRadius(40)
                         }
                         .padding(5.0)
-                        
-                        if !self.timeRunning {
-                            Button(action: {
-                                buttonString = "Start"
-                                button = false
-                                timeRunning = false
-                                stopWatchManager.restart()
-                            }){
-                                Text("Restart")
-                                    .padding(2.0)
-                                    .font(.system(.title2))
-                                    .frame(width: 250.0,height: 50.0)
-                                    .foregroundColor(.white)
-                                    .background(.red)
-                                    .cornerRadius(40)
-                            }
-                            .padding(5.0)
-                        }
                     }
                 }
-                Spacer()
             }
+            
         }
+        
+        
     }
     
     private func timeStringPicker(time: Int) -> String {
@@ -163,4 +155,10 @@ struct BrushView: View {
         return String(format: "%02i : %02i", minutes, seconds)
     }
     
+}
+
+struct BrushView_Previews: PreviewProvider {
+    static var previews: some View {
+        BrushView()
+    }
 }
