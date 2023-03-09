@@ -100,9 +100,6 @@ struct NotificationsView: View {
                 }
                 
                 
-                
-                
-                
             }
             
             /*
