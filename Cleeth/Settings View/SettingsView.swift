@@ -12,78 +12,79 @@ struct SettingsView: View {
         
         NavigationView {
             
-            List(){
-                
-                Section(header: Text("More")) {
+                List(){
                     
-                    NavigationLink(destination: NotificationsView()){
+                    Section(header: Text("More")) {
+                        
+                        NavigationLink(destination: NotificationsView()){
+                            HStack{
+                                Image(systemName: "bell.badge")
+                                Text("Notifications")
+                            }
+                            
+                        }
+                        
                         HStack{
-                            Image(systemName: "bell.badge")
-                            Text("Notifications")
+                            Image(systemName: "calendar")
+                            Text("Sincronize with Calendar")
+                        }
+                        
+                        HStack{
+                            Image(systemName: "moon.circle")
+                            Text("Dark mode")
+                        }
+                        
+                    }
+                    //.headerProminence(.increased)
+                    
+                    Section(header: Text("About")) {
+                        
+                        HStack{
+                            Image(systemName: "info.circle")
+                            Text("About")
+                        }
+                        
+                        HStack{
+                            Image(systemName: "square.and.arrow.up")
+                            Text("Recommend")
+                        }
+                        
+                        
+                        HStack{
+                            Image(systemName: "star")
+                            Text("Evaluate")
+                        }
+                        
+                        HStack{
+                            Image(systemName: "bubble.right")
+                            Text("Feedback and Support")
+                        }
+                        
+                        
+                        HStack{
+                            Image(systemName: "creditcard")
+                            Text("Donations")
                         }
                         
                     }
                     
-                    HStack{
-                        Image(systemName: "calendar")
-                        Text("Sincronize with Calendar")
-                    }
-                    
-                    HStack{
-                        Image(systemName: "moon.circle")
-                        Text("Dark mode")
-                    }
-                    
-                }
-                //.headerProminence(.increased)
-                
-                Section(header: Text("About")) {
-                    
-                    HStack{
-                        Image(systemName: "info.circle")
-                        Text("About")
-                    }
-                    
-                    HStack{
-                        Image(systemName: "square.and.arrow.up")
-                        Text("Recommend")
-                    }
-                    
-                    
-                    HStack{
-                        Image(systemName: "star")
-                        Text("Evaluate")
-                    }
-                    
-                    HStack{
-                        Image(systemName: "bubble.right")
-                        Text("Feedback and Support")
-                    }
-                    
-                    
-                    HStack{
-                        Image(systemName: "creditcard")
-                        Text("Donations")
-                    }
-                    
-                }
-                
-                Section(){
-                    ZStack{
-                        Button(action: {
-                            print("Clear Statistics button pressed")
-                        }){
-                            HStack{
-                                Image(systemName: "trash")
-                                Text("Clear Statistics")
+                    Section(){
+                        ZStack{
+                            Button(action: {
+                                print("Clear Statistics button pressed")
+                            }){
+                                HStack{
+                                    Image(systemName: "trash")
+                                    Text("Clear Statistics")
+                                }
                             }
+                            .foregroundColor(.red)
                         }
-                        .foregroundColor(.red)
                     }
+                    
                 }
+                .listStyle(.insetGrouped)
                 
-            }
-            .listStyle(.insetGrouped)
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
             

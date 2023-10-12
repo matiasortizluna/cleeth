@@ -11,32 +11,35 @@ struct ContentView: View {
     
     var body: some View {
         
-        TabView {
+        TabView(selection: .constant(2)){
             
             StatisticsView()
                 .tabItem {
                     Label("Statistics", systemImage: "chart.bar")
                 }
+                .tag(1)
+                
             
             BrushView()
                 .tabItem {
                     Label("Brush", systemImage: "face.smiling")
-                }
+                }.tag(2)
             
             
             SettingsView()
                 .tabItem {
                     Label("Settings", systemImage: "gear")
-                }            
-
+                }
+                .tag(3)
+            
         }
-        
+        .accentColor(Color(.cleethGreen))
     }
 }
-
+ 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentView().environmentObject(BrushTimeModel())
     }
 }
 

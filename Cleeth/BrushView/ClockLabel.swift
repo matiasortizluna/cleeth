@@ -8,11 +8,26 @@
 import SwiftUI
 
 struct ClockLabel: View {
+    
+    @EnvironmentObject var brushTimeModel : BrushTimeModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Text(self.brushTimeModel.convertDurationToString())
+            .foregroundStyle(Color(.cleethGreen))
+            .font(.system(size: 60.0)).bold()
+            .overlay(content: {
+                
+                RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
+                    .frame(width: 200,height: 100)
+                    .foregroundStyle(Color(.cleethDarkGreen))
+                    .opacity(0.2)
+                
+            })
+            
     }
 }
 
 #Preview {
-    ClockLabel()
+    ClockLabel().environmentObject(BrushTimeModel())
 }
+

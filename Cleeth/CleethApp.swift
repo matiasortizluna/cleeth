@@ -7,47 +7,97 @@
 
 import SwiftUI
 
-@main
-struct CleethApp: App {
-    var body: some Scene {
-        WindowGroup {
-            ContentView()
-        }
+class BrushTimeModel : ObservableObject {
+    
+    @Published var timer = Timer()
+    // seconds
+    @Published var clock_default_value = 120
+    @Published var clock = 120
+    
+    @Published var play: Bool = false
+    
+    @Published var fill_top: CGFloat = 0.5
+    @Published var fill_bottom: CGFloat = 0.0
+    
+    @Published var hideTabBar: Bool = false
+    
+    func restartClock(){
+        self.play.toggle()
+        
+        self.fill_top = 0.5
+        self.fill_bottom = 0.0
+        
+        self.timer.invalidate()
+        self.clock = self.clock_default_value
+        
+        self.hideTabBar.toggle()
     }
+    
+    func startClock(){
+        self.play.toggle()
+        
+        self.fill_top = 1.0
+        self.fill_bottom = 0.5
+        
+        self.hideTabBar.toggle()
+        
+    }
+    
+    func finishedClock(){
+        self.restartClock()
+    }
+    
+    func setNewValueForClock(new_value : Int){
+        self.clock_default_value = new_value
+        self.clock = self.clock_default_value
+    }
+    
+    func secondsToMinutesSeconds() -> (Int, Int) {
+        return ((self.clock % 3600) / 60, (self.clock % 3600) % 60)
+    }
+    
+    
+    public func convertDurationToString() -> String {
+        var duration = ""
+        let (minute, second) = self.secondsToMinutesSeconds()
+        return "\(duration)\(self.getMinute(minute: minute))\(self.getSecond(second: second))"
+    }
+    
+    
+    private func getMinute(minute: Int) -> String {
+        if (minute == 0) {
+            return "00:"
+        }
+        
+        if (minute < 10) {
+            return "0\(minute):"
+        }
+        
+        return "\(minute):"
+    }
+    
+    private func getSecond(second: Int) -> String {
+        if (second == 0){
+            return "00"
+        }
+        
+        if (second < 10) {
+            return "0\(second)"
+        }
+        return "\(second)"
+    }
+    
 }
 
-class StopWatchManager : ObservableObject{
+@main
+struct CleethApp: App {
     
-    @Published var timeRemaining = 3*60
+    @StateObject var brushTimeModel = BrushTimeModel()
     
-    var timer = Timer()
-    
-    func start(){
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true, block: { timer in
-            if(self.timeRemaining>=0 && self.timeRemaining<661){
-                self.timeRemaining -= 1
-            }
-        })
-    }
-    
-    func stop(){
-        timer.invalidate()
-    }
-    
-    func restart(){
-        timer.invalidate()
-        self.timeRemaining = 3*60
-    }
-    
-    func add(){
-        if(self.timeRemaining<600){
-            self.timeRemaining += 60
+    var body: some Scene {
+        WindowGroup {
+            ContentView().environmentObject(brushTimeModel)
         }
     }
     
-    func reduce(){
-        if(self.timeRemaining>61){
-            self.timeRemaining -= 60
-        }
-    }
 }

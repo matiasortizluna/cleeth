@@ -15,8 +15,9 @@ struct StatisticsView: View {
                 
                 Text("We're working on it. See u soon")
                 
-            }.navigationTitle("Statistics")
-                .navigationBarTitleDisplayMode(.large)
+            }
+            .navigationTitle("Statistics")
+            .navigationBarTitleDisplayMode(.large)
                       
                 
         }

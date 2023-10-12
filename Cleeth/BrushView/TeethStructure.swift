@@ -8,11 +8,59 @@
 import SwiftUI
 
 struct TeethStructure: View {
+    
+    @EnvironmentObject var brushTimeModel : BrushTimeModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ZStack (){
+            
+            ZStack (){
+                
+                Circle()
+                    .trim(from: 0.5, to: 1.0)
+                    .stroke(lineWidth: 30.0)
+                    .foregroundStyle(Color(.cleethDarkGreen))
+                    .opacity(0.3)
+                    .frame(width: 250, height: 500)
+                    .padding(.bottom,25)
+                
+                Circle()
+                    .trim(from: 0.5, to: self.brushTimeModel.fill_top)
+                    .stroke(lineWidth: 30.0)
+                    .foregroundStyle(Color(.cleethGreen))
+                    .frame(width: 250, height: 500)
+                    .padding(.bottom,25)
+                    .animation(self.brushTimeModel.play ? Animation.linear(duration: Double(self.brushTimeModel.clock_default_value)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.play)
+                
+                
+            }
+            
+            
+            ZStack (){
+                
+                Circle()
+                    .trim(from: 0, to: 0.5)
+                    .stroke(lineWidth: 30.0)
+                    .foregroundStyle(Color(.cleethDarkGreen))
+                    .opacity(0.3)
+                    .frame(width: 250, height: 500)
+                    .padding(.top,25)
+                
+                Circle()
+                    .trim(from: 0.0, to: self.brushTimeModel.fill_bottom)
+                    .stroke(lineWidth: 30.0)
+                    .foregroundStyle(Color(.cleethGreen))
+                    .frame(width: 250, height: 500)
+                    .padding(.top,25)
+                    .animation(self.brushTimeModel.play ? Animation.linear(duration: Double(self.brushTimeModel.clock_default_value)/2).delay(Double(self.brushTimeModel.clock_default_value)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.play)
+            }
+            
+        }
+        
     }
 }
 
 #Preview {
-    TeethStructure()
+    TeethStructure().environmentObject(BrushTimeModel())
 }
