@@ -32,8 +32,7 @@ struct TeethStructure: View {
                     .frame(width: 250, height: 500)
                     .padding(.bottom,25)
                     .animation(self.brushTimeModel.play ? Animation.linear(duration: Double(self.brushTimeModel.clock_default_value)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.play)
-                
-                
+                   
             }
             
             

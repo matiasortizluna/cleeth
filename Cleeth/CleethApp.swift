@@ -11,8 +11,8 @@ class BrushTimeModel : ObservableObject {
     
     @Published var timer = Timer()
     // seconds
-    @Published var clock_default_value = 120
-    @Published var clock = 120
+    @Published var clock_default_value = 3
+    @Published var clock = 3
     
     @Published var play: Bool = false
     
@@ -20,6 +20,11 @@ class BrushTimeModel : ObservableObject {
     @Published var fill_bottom: CGFloat = 0.0
     
     @Published var hideTabBar: Bool = false
+    
+    @Published var animateBrushView : Bool = false
+    
+    @Published var animateFinish : Bool = false
+    @Published var animateStop : Bool = false
     
     func restartClock(){
         self.play.toggle()
@@ -45,6 +50,12 @@ class BrushTimeModel : ObservableObject {
     
     func finishedClock(){
         self.restartClock()
+        
+        self.hideTabBar.toggle()
+        Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: {_ in 
+            self.hideTabBar.toggle()
+        })
+        
     }
     
     func setNewValueForClock(new_value : Int){
@@ -58,9 +69,8 @@ class BrushTimeModel : ObservableObject {
     
     
     public func convertDurationToString() -> String {
-        var duration = ""
         let (minute, second) = self.secondsToMinutesSeconds()
-        return "\(duration)\(self.getMinute(minute: minute))\(self.getSecond(second: second))"
+        return "\(self.getMinute(minute: minute))\(self.getSecond(second: second))"
     }
     
     

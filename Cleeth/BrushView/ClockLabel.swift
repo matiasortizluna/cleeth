@@ -13,6 +13,7 @@ struct ClockLabel: View {
     
     var body: some View {
         Text(self.brushTimeModel.convertDurationToString())
+            .animation(.easeIn(duration: 0.2))
             .foregroundStyle(Color(.cleethGreen))
             .font(.system(size: 60.0)).bold()
             .overlay(content: {
