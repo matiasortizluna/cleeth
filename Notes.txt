@@ -9,7 +9,6 @@ Cleeth green: #2A9D8F
 Tasks:
 
 Settings Section.
-Set Default Time.
 
 Set How many times.
 At which time.
