@@ -9,7 +9,7 @@ import SwiftUI
 
 struct BrushView: View {
     
-    @EnvironmentObject var brushTimeModel : BrushTimeModel
+    @EnvironmentObject var brushViewModel : BrushViewModel
     
     var body: some View {
         
@@ -32,18 +32,18 @@ struct BrushView: View {
                 
                 ClockLabel()
                     .padding(.bottom,-25)
-                    .scaleEffect(self.brushTimeModel.animateBrushView ? 1.0 : 1.1)
-                    .animation(self.brushTimeModel.animateBrushView ? Animation.easeInOut(duration: 1.0).repeatForever() :  Animation.easeOut(duration: 3.0), value: self.brushTimeModel.animateBrushView)
+                    .scaleEffect(self.brushViewModel.animatePlay ? 1.0 : 1.1)
+                    .animation(self.brushViewModel.animatePlay ? Animation.easeInOut(duration: 1.0).repeatForever() :  Animation.easeOut(duration: 3.0), value: self.brushViewModel.animatePlay)
                 
                 ZStack(){
                     
                     TeethStructure()
-                        .scaleEffect(self.brushTimeModel.animateBrushView ? 1.0 : 1.10)
-                        .animation(self.brushTimeModel.animateBrushView ? Animation.easeInOut(duration: 1.0).repeatForever() :  Animation.easeOut(duration: 3.0), value: self.brushTimeModel.animateBrushView)
+                        .scaleEffect(self.brushViewModel.animatePlay ? 1.0 : 1.10)
+                        .animation(self.brushViewModel.animatePlay ? Animation.easeInOut(duration: 1.0).repeatForever() :  Animation.easeOut(duration: 3.0), value: self.brushViewModel.animatePlay)
                         
                     
-                        .rotationEffect(self.brushTimeModel.animateStop ?  .degrees(360) : .degrees(0))
-                        .animation(self.brushTimeModel.animateStop ? Animation.easeIn(duration: 2.0) : Animation.easeIn(duration: 0.0), value: self.brushTimeModel.animateStop)
+                        .rotationEffect(self.brushViewModel.animateStop ?  .degrees(360) : .degrees(0))
+                        .animation(self.brushViewModel.animateStop ? Animation.easeIn(duration: 2.0) : Animation.easeIn(duration: 0.0), value: self.brushViewModel.animateStop)
                     
                     PlayRepeatButtons()
                     
@@ -61,18 +61,18 @@ struct BrushView: View {
                 Text("Congrats!")
                     .foregroundStyle(Color(.white))
                     .font(.system(size: 60.0)).bold()
-                    .scaleEffect(self.brushTimeModel.animateFinish ? 1.0 : 1.30)
-                    .animation(.bouncy(duration: 1.75), value: self.brushTimeModel.animateFinish)
+                    .scaleEffect(self.brushViewModel.animateFinish ? 1.0 : 1.30)
+                    .animation(.bouncy(duration: 1.75), value: self.brushViewModel.animateFinish)
                 
                 
-            }.opacity(self.brushTimeModel.animateFinish ? 0.98 : 0)
+            }.opacity(self.brushViewModel.animateFinish ? 0.98 : 0)
             
         }
         .ignoresSafeArea(.all)
-        .toolbar(self.brushTimeModel.hideTabBar ? .hidden : .visible, for: .tabBar).animation(.linear(duration: 0.1))
+        .toolbar(self.brushViewModel.hideTabBar ? .hidden : .visible, for: .tabBar).animation(.linear(duration: 0.1))
     }
 }
 
 #Preview {
-    BrushView().environmentObject(BrushTimeModel())
+    BrushView().environmentObject(BrushViewModel())
 }

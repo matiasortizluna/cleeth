@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClockLabel: View {
     
-    @EnvironmentObject var brushTimeModel : BrushTimeModel
+    @EnvironmentObject var brushTimeModel : BrushViewModel
     
     var body: some View {
         Text(self.brushTimeModel.convertDurationToString())
@@ -29,6 +29,6 @@ struct ClockLabel: View {
 }
 
 #Preview {
-    ClockLabel().environmentObject(BrushTimeModel())
+    ClockLabel().environmentObject(BrushViewModel())
 }
 

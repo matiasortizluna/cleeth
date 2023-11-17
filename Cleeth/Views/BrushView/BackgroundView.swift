@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-class AnimationModel : ObservableObject {
-    @Published var startAnimation : Bool = false
-    @Published var startAnimation2 : Bool = false
-}
-
 struct BackgroundView: View {
     
     private struct Emoji : Decodable, Hashable, Identifiable {
@@ -93,7 +88,7 @@ struct BackgroundView: View {
             
             ForEach(emojis){ emoji in
                 
-                EmojiImage(isSystemName: emoji.isSystemName, imageName: emoji.imageName, width: 30, height: 30, delay: 2.0, geometry_width: geometry.size.width * emoji.geometry_width, geometry_heigth: geometry.size.height, emojiPosition: geometry.size.height * emoji.initial_position).environmentObject(AnimationModel())
+                EmojiImage(isSystemName: emoji.isSystemName, imageName: emoji.imageName, width: 30, height: 30, delay: 2.0, geometry_width: geometry.size.width * emoji.geometry_width, geometry_heigth: geometry.size.height, emojiPosition: geometry.size.height * emoji.initial_position).environmentObject(BackgroundViewAnimationModel())
                 
             }
             
@@ -104,7 +99,7 @@ struct BackgroundView: View {
 
 struct EmojiImage: View {
     
-    @EnvironmentObject var animationModel : AnimationModel
+    @EnvironmentObject var backgroundViewAnimationmodel : BackgroundViewAnimationModel
     
     var isSystemName : Bool
     
@@ -127,14 +122,14 @@ struct EmojiImage: View {
             .resizable()
             .frame(width: width,height: height)
             .foregroundStyle(Color(.cleethGreen))
-            .symbolEffect(.bounce, options: .repeating, value: animationModel.startAnimation)
-            .scaleEffect(animationModel.startAnimation2 ? 1.0 : 1.5)
-            .animation(.default, value: animationModel.startAnimation2)
+            .symbolEffect(.bounce, options: .repeating, value: backgroundViewAnimationmodel.startAnimation)
+            .scaleEffect(backgroundViewAnimationmodel.startAnimation2 ? 1.0 : 1.5)
+            .animation(.default, value: backgroundViewAnimationmodel.startAnimation2)
             .onAppear(perform: {
-                animationModel.startAnimation2.toggle()
+                backgroundViewAnimationmodel.startAnimation2.toggle()
                 timer2 = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: true)
                 { timer in
-                    animationModel.startAnimation2.toggle()
+                    backgroundViewAnimationmodel.startAnimation2.toggle()
                 }
             })
             .position(x: geometry_width, y: emojiPosition)
@@ -142,7 +137,7 @@ struct EmojiImage: View {
                 timer1 = Timer.scheduledTimer(withTimeInterval: 0.07, repeats: true)
                 { timer in
                     self.emojiPosition -= 1.0
-                    animationModel.startAnimation.toggle()
+                    backgroundViewAnimationmodel.startAnimation.toggle()
                     if self.emojiPosition < 0 {
                         self.emojiPosition = geometry_heigth
                     }

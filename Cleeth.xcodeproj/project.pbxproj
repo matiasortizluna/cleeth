@@ -16,6 +16,8 @@
 		0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D68299E6A4300B0FC0A /* BrushView.swift */; };
 		0F794D6B299E6ABA00B0FC0A /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D6A299E6ABA00B0FC0A /* StatisticsView.swift */; };
 		0F794D6D299E6ACA00B0FC0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */; };
+		0F8566C72B07B5F7006482C0 /* BrushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */; };
+		0F8566C92B07B756006482C0 /* BackgroundViewAnimationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8566C82B07B756006482C0 /* BackgroundViewAnimationModel.swift */; };
 		0FC6FE0C2AD6F80C002E5E9B /* TeethStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */; };
 		0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */; };
 		0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */; };
@@ -33,6 +35,8 @@
 		0F794D68299E6A4300B0FC0A /* BrushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushView.swift; sourceTree = "<group>"; };
 		0F794D6A299E6ABA00B0FC0A /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushViewModel.swift; sourceTree = "<group>"; };
+		0F8566C82B07B756006482C0 /* BackgroundViewAnimationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundViewAnimationModel.swift; sourceTree = "<group>"; };
 		0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeethStructure.swift; sourceTree = "<group>"; };
 		0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepeatButtons.swift; sourceTree = "<group>"; };
 		0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabel.swift; sourceTree = "<group>"; };
@@ -70,9 +74,9 @@
 			children = (
 				0F06EE6A2806366700770031 /* CleethApp.swift */,
 				0F06EE6C2806366700770031 /* ContentView.swift */,
-				0F23B2B12AD2ED51007D2BC0 /* BrushView */,
-				0F23B2B32AD2ED74007D2BC0 /* Settings View */,
-				0F23B2B22AD2ED65007D2BC0 /* StatisticsView */,
+				0F8566C42B07B529006482C0 /* Model */,
+				0F8566C32B07B510006482C0 /* Views */,
+				0F8566C52B07B545006482C0 /* AuxiliaryFiles */,
 				0F06EE6E2806366D00770031 /* Assets.xcassets */,
 				0F23B2B42AD2EDD2007D2BC0 /* Cleeth.entitlements */,
 				0F06EE702806366D00770031 /* Preview Content */,
@@ -115,6 +119,32 @@
 				0F2E8F2029A036F400C68D69 /* NotificationsView.swift */,
 			);
 			path = "Settings View";
+			sourceTree = "<group>";
+		};
+		0F8566C32B07B510006482C0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0F23B2B12AD2ED51007D2BC0 /* BrushView */,
+				0F23B2B32AD2ED74007D2BC0 /* Settings View */,
+				0F23B2B22AD2ED65007D2BC0 /* StatisticsView */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0F8566C42B07B529006482C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */,
+				0F8566C82B07B756006482C0 /* BackgroundViewAnimationModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		0F8566C52B07B545006482C0 /* AuxiliaryFiles */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = AuxiliaryFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0F794D6D299E6ACA00B0FC0A /* SettingsView.swift in Sources */,
+				0F8566C72B07B5F7006482C0 /* BrushViewModel.swift in Sources */,
 				0F06EE6D2806366700770031 /* ContentView.swift in Sources */,
 				0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */,
 				0FC6FE0C2AD6F80C002E5E9B /* TeethStructure.swift in Sources */,
@@ -195,6 +226,7 @@
 				0F23B2B02AD2ED49007D2BC0 /* BackgroundView.swift in Sources */,
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
+				0F8566C92B07B756006482C0 /* BackgroundViewAnimationModel.swift in Sources */,
 				0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */,
 				0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */,
 			);

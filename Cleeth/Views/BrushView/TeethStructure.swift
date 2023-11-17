@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeethStructure: View {
     
-    @EnvironmentObject var brushTimeModel : BrushTimeModel
+    @EnvironmentObject var brushTimeModel : BrushViewModel
     
     var body: some View {
         
@@ -26,12 +26,12 @@ struct TeethStructure: View {
                     .padding(.bottom,25)
                 
                 Circle()
-                    .trim(from: 0.5, to: self.brushTimeModel.fill_top)
+                    .trim(from: 0.5, to: self.brushTimeModel.fillTopTeethBar)
                     .stroke(lineWidth: 30.0)
                     .foregroundStyle(Color(.cleethGreen))
                     .frame(width: 250, height: 500)
                     .padding(.bottom,25)
-                    .animation(self.brushTimeModel.play ? Animation.linear(duration: Double(self.brushTimeModel.clock_default_value)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.play)
+                    .animation(self.brushTimeModel.playStopButton ? Animation.linear(duration: Double(self.brushTimeModel.clockDefaultValue)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.playStopButton)
                    
             }
             
@@ -47,12 +47,12 @@ struct TeethStructure: View {
                     .padding(.top,25)
                 
                 Circle()
-                    .trim(from: 0.0, to: self.brushTimeModel.fill_bottom)
+                    .trim(from: 0.0, to: self.brushTimeModel.fillBottomTeethBar)
                     .stroke(lineWidth: 30.0)
                     .foregroundStyle(Color(.cleethGreen))
                     .frame(width: 250, height: 500)
                     .padding(.top,25)
-                    .animation(self.brushTimeModel.play ? Animation.linear(duration: Double(self.brushTimeModel.clock_default_value)/2).delay(Double(self.brushTimeModel.clock_default_value)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.play)
+                    .animation(self.brushTimeModel.playStopButton ? Animation.linear(duration: Double(self.brushTimeModel.clockDefaultValue)/2).delay(Double(self.brushTimeModel.clockDefaultValue)/2) : Animation.linear(duration: 0.0), value: self.brushTimeModel.playStopButton)
             }
             
         }
@@ -61,5 +61,5 @@ struct TeethStructure: View {
 }
 
 #Preview {
-    TeethStructure().environmentObject(BrushTimeModel())
+    TeethStructure().environmentObject(BrushViewModel())
 }

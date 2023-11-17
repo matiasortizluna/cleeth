@@ -9,22 +9,19 @@ import SwiftUI
 
 struct PlayRepeatButtons: View {
     
-    @EnvironmentObject var brushTimeModel : BrushTimeModel
+    @EnvironmentObject var brushTimeModel : BrushViewModel
     
     var body: some View {
         
         
         Button(action: {
             
-            if (brushTimeModel.play){
+            if (brushTimeModel.playStopButton){
                 
                 print("Stop Tapped")
-                
-                self.brushTimeModel.animateBrushView.toggle()
-                
-                self.brushTimeModel.animateStop.toggle()
-                
                 self.brushTimeModel.restartClock()
+                self.brushTimeModel.animatePlay.toggle()
+                self.brushTimeModel.animateStop.toggle()
                 
                 Timer.scheduledTimer(withTimeInterval: 2.0, repeats: false, block: {_ in
                     self.brushTimeModel.animateStop.toggle()
@@ -33,41 +30,29 @@ struct PlayRepeatButtons: View {
             }else{
                 
                 print("Play Tapped")
-                
                 self.brushTimeModel.startClock()
-                
-                self.brushTimeModel.animateBrushView.toggle()
+                self.brushTimeModel.animatePlay.toggle()
                 
                 self.brushTimeModel.timer = Timer.scheduledTimer(withTimeInterval: 0.975, repeats: true){ timer in
-                    if (self.brushTimeModel.clock == 0){
+                    
+                    self.brushTimeModel.clockCurrentValue -= 1
+                    
+                    if (self.brushTimeModel.clockCurrentValue == 0){
                         
-                        self.brushTimeModel.finishedClock()
+                        self.brushTimeModel.finishClock()
+                        self.brushTimeModel.animatePlay.toggle()
+                        self.brushTimeModel.animateFinish.toggle()
                         
-                    }else{
-                        self.brushTimeModel.clock -= 1
-                        print(self.brushTimeModel.clock)
-                        
-                        if (self.brushTimeModel.clock == 0){
-                            self.brushTimeModel.finishedClock()
-                            
+                        Timer.scheduledTimer(withTimeInterval: 2.75, repeats: false, block: {_ in
                             self.brushTimeModel.animateFinish.toggle()
-                            Timer.scheduledTimer(withTimeInterval: 2.75, repeats: false, block: {_ in
-                                                self.brushTimeModel.animateFinish.toggle()
-                                            })
-                            self.brushTimeModel.animateBrushView.toggle()
-                                    
-                            
-                        }
-                        
+                        })
                     }
                     
-                    
                 }
-                
             }
             
         }, label: {
-            Image(systemName: brushTimeModel.play ? "stop.fill" : "play.fill")
+            Image(systemName: brushTimeModel.playStopButton ? "stop.fill" : "play.fill")
                 .animation(.easeInOut(duration: 0.2))
                 .font(.system(size: 70.0))
                 .foregroundStyle(Color(.cleethGreen))
@@ -85,5 +70,5 @@ struct PlayRepeatButtons: View {
 }
 
 #Preview {
-    PlayRepeatButtons().environmentObject(BrushTimeModel())
+    PlayRepeatButtons().environmentObject(BrushViewModel())
 }
