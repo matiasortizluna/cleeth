@@ -10,11 +10,7 @@ Tasks:
 
 Settings Section.
 
-Set How many times.
-At which time.
-
 Create events with Calendar.
-
 Create Dark Mode.
 
 About
@@ -36,7 +32,7 @@ Per week
 Per month
 Per year
 
-Badges.
+Completion Badges.
 3 times per day
 5 time per day
 3 days
