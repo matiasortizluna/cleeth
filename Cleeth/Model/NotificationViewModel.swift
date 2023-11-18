@@ -7,6 +7,7 @@
 
 import Foundation
 import UserNotifications
+import UIKit
 
 class NotificationViewModel : ObservableObject {
     
@@ -19,12 +20,25 @@ class NotificationViewModel : ObservableObject {
     @Published var date5 : Date = Date()
     @Published var date6 : Date = Date()
     
+    private var badgeCount : Int = 0
+    
     private var finalBrush : String = "Almost Done! Final Brush of the day! Let's do it!"
+    
+    func getBadgeCount() -> Int {
+        return self.badgeCount
+    }
+    
+    func setBadgeCount(newValue: Int) -> Void {
+        self.badgeCount = newValue
+    }
     
     
     func scheduleLocalNotifications(){
         var hour = 0
         var minute = 0
+        
+        UNUserNotificationCenter.current().removeAllDeliveredNotifications()
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
         if(1 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date1)
@@ -66,18 +80,23 @@ class NotificationViewModel : ObservableObject {
     
     
     func sendNotification(title: String, body: String, badge: UInt,hour: Int, minute: Int) {
+        self.setBadgeCount(newValue: self.getBadgeCount()+1)
         
         // Define the content
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
-        //content.badge = NSNumber(value: badge)
+        content.badge = NSNumber(value: self.getBadgeCount())
         content.sound = .default
         
         let components = Calendar.current.dateComponents([.hour, .minute], from: Calendar.current.date(from: DateComponents(hour: hour, minute: minute))!)
         let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
         
-        let request = UNNotificationRequest(identifier: "DailyReminder", content: content, trigger: trigger)
+        let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().getPendingNotificationRequests(completionHandler: { success in
+            print(success)
+        })
         
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound], completionHandler: { granted, error in
             if granted {

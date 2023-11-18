@@ -24,6 +24,7 @@ struct ContentView: View {
                 .tabItem {
                     Label("Brush", systemImage: "face.smiling")
                 }.tag(2)
+                //.badge(12)
             
             
             SettingsView()
