@@ -9,8 +9,7 @@ import SwiftUI
 
 struct NotificationsView: View {
     
-    @State var timesPerDay : Int = 0
-    @State var date : Date = Date()
+    @EnvironmentObject var notificationViewModel : NotificationViewModel
     
     var body: some View {
         
@@ -27,35 +26,69 @@ struct NotificationsView: View {
             
             Section(header: Text("Notifications Schedule")) {
                 
-                Picker("Times Per Day", systemImage: "timer", selection:  self.$timesPerDay, content: {
+                Picker("Times Per Day", systemImage: "timer", selection:  self.$notificationViewModel.timesPerDay, content: {
                     
-                    ForEach(2..<6, id: \.self, content: {
+                    ForEach(2..<7, id: \.self, content: {
                         Text("\($0) times")
                     })
                 })
                 
-                ForEach(1...Helper.notificationsPerDay, id:\.self, content: {time in
-                    
-                    DatePicker("\(time) time: ", selection: self.$date)
-                    
-                })
+                if(1 <= self.notificationViewModel.timesPerDay){
+                    DatePicker("1st time: ", selection: self.$notificationViewModel.date1, displayedComponents: [.hourAndMinute])
+                }
+                
+                if(2 <= self.notificationViewModel.timesPerDay){
+                    DatePicker("2nd time: ", selection: self.$notificationViewModel.date2, displayedComponents: [.hourAndMinute])
+                }
+                
+                if(3 <= self.notificationViewModel.timesPerDay){
+                    DatePicker("3rd time: ", selection: self.$notificationViewModel.date3, displayedComponents: [.hourAndMinute])
+                }
+                
+                if(4 <= self.notificationViewModel.timesPerDay){
+                    DatePicker("4th time: ", selection: self.$notificationViewModel.date4, displayedComponents: [.hourAndMinute])
+                }
+                
+                if(5 <= self.notificationViewModel.timesPerDay){
+                    DatePicker("5th time: ", selection: self.$notificationViewModel.date5, displayedComponents: [.hourAndMinute])
+                }
+                
+                if(6 <= self.notificationViewModel.timesPerDay){
+                    DatePicker("6th time: ", selection: self.$notificationViewModel.date6, displayedComponents: [.hourAndMinute])
+                }
                 
             }
-            
         }
         .navigationTitle("Notifications")
         .navigationBarTitleDisplayMode(.large)
-        
+        .onChange(of: self.notificationViewModel.timesPerDay, {
+            
+            
+            self.notificationViewModel.date1 = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 1)))!
+            
+            self.notificationViewModel.date2  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 2)))!
+            
+            self.notificationViewModel.date3  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 3)))!
+            
+            self.notificationViewModel.date4  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 4)))!
+            
+            self.notificationViewModel.date5  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 5)))!
+            
+            self.notificationViewModel.date6 = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 6)))!
+        })
+        .onDisappear(perform: {
+            
+            self.notificationViewModel.scheduleLocalNotifications()
+            
+        })
     }
-    
-    
-    
     
 }
 
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
+            .environmentObject(NotificationViewModel())
     }
 }
 

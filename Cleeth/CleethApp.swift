@@ -11,10 +11,13 @@ import SwiftUI
 struct CleethApp: App {
     
     @StateObject var brushTimeModel = BrushViewModel()
+    @StateObject var notificationViewModel = NotificationViewModel()
     
     var body: some Scene {
         WindowGroup {
-            ContentView().environmentObject(brushTimeModel)
+            ContentView()
+                .environmentObject(brushTimeModel)
+                .environmentObject(notificationViewModel)
         }
     }
     

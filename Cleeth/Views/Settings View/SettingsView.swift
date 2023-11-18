@@ -10,6 +10,8 @@ import SwiftUI
 struct SettingsView: View {
     
     @EnvironmentObject var brushTimeModel : BrushViewModel
+    @EnvironmentObject var notificationViewModel : NotificationViewModel
+    
     @State private var time : Int = 2
     
     var body: some View {
@@ -107,7 +109,9 @@ struct SettingsView: View {
     
     struct SettingsView_Previews: PreviewProvider {
         static var previews: some View {
-            SettingsView().environmentObject(BrushViewModel())
+            SettingsView()
+                .environmentObject(BrushViewModel())
+                .environmentObject(NotificationViewModel())
         }
     }
     

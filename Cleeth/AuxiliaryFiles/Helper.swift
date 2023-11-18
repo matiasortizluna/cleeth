@@ -11,11 +11,53 @@ import UserNotifications
 
 class Helper {
     
-    static var notificationsPerDay : Int = 2
-    
-    static func getNotificationsPerDay() -> Int {
-        return self.notificationsPerDay
+    static func calculateTimesBasedOnNumberOfTimes(timesPerDay: Int, time: Int) -> Int {
+        switch (timesPerDay, time) {
+        case (2, 1):
+            return 8
+        case (2, 2):
+            return 23
+        case (3, 1):
+            return 8
+        case (3, 2):
+            return 14
+        case (3, 3):
+            return 23
+        case (4, 1):
+            return 8
+        case (4, 2):
+            return 14
+        case (4, 3):
+            return 17
+        case (4, 4):
+            return 23
+        case (5, 1):
+            return 8
+        case (5, 2):
+            return 11
+        case (5, 3):
+            return 14
+        case (5, 4):
+            return 17
+        case (5, 5):
+            return 23
+        case (6, 1):
+            return 8
+        case (6, 2):
+            return 11
+        case (6, 3):
+            return 14
+        case (6, 4):
+            return 17
+        case (6, 5):
+            return 20
+        case (6, 6):
+            return 23
+        default:
+            return 0
+        }
     }
+
     
     static func requestNotificationsPermission() {
         

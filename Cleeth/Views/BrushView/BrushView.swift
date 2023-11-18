@@ -10,6 +10,7 @@ import SwiftUI
 struct BrushView: View {
     
     @EnvironmentObject var brushViewModel : BrushViewModel
+    @EnvironmentObject var notificationViewModel : NotificationViewModel
     
     var body: some View {
         
@@ -74,5 +75,6 @@ struct BrushView: View {
 }
 
 #Preview {
-    BrushView().environmentObject(BrushViewModel())
+    BrushView()
+        .environmentObject(BrushViewModel())
 }

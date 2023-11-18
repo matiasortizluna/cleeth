@@ -23,6 +23,7 @@
 		0FC6FE0C2AD6F80C002E5E9B /* TeethStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */; };
 		0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */; };
 		0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */; };
+		0FD89A302B083EC20013D0BA /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeethStructure.swift; sourceTree = "<group>"; };
 		0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepeatButtons.swift; sourceTree = "<group>"; };
 		0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabel.swift; sourceTree = "<group>"; };
+		0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +143,7 @@
 				0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */,
 				0F8566C82B07B756006482C0 /* BackgroundViewAnimationModel.swift */,
 				0F7654062B07E1FC0028910D /* UserData.swift */,
+				0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -234,6 +237,7 @@
 				0F23B2B02AD2ED49007D2BC0 /* BackgroundView.swift in Sources */,
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
+				0FD89A302B083EC20013D0BA /* NotificationViewModel.swift in Sources */,
 				0F8566C92B07B756006482C0 /* BackgroundViewAnimationModel.swift in Sources */,
 				0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */,
 				0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */,
