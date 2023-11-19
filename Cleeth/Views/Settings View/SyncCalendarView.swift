@@ -12,7 +12,6 @@ struct SyncCalendarView: View {
     var eventModel : EventModel = EventModel()
     @State var showingDialogEventCalendar : Bool = false
     
-    
     var body: some View {
         Button(action: {
             print("Button tapped!")
@@ -32,7 +31,7 @@ struct SyncCalendarView: View {
             
             Button("Yes, Sync Now") {
                 print("Sync with Calendar")
-                self.eventModel.addEventToCalendar()
+                self.eventModel.addEventsToCalendar()
             }
             .keyboardShortcut(.defaultAction)
             

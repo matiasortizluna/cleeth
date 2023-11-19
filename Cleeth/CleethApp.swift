@@ -21,8 +21,13 @@ struct CleethApp: App {
             defaults: [
                 "clockDefaultValue": 3,
                 "clockCurrentValue": 3,
-                "timesPerDay": 5
-                
+                "timesPerDay": 5,
+                "date1" : Calendar.current.date(from: DateComponents(hour: 10))!,
+                "date2" : Calendar.current.date(from: DateComponents(hour: 23))!,
+                "date3" : Date(),
+                "date4" : Date(),
+                "date5" : Date(),
+                "date6" : Date()
             ]
         )
         

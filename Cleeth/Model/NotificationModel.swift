@@ -14,14 +14,12 @@ class NotificationModel : ObservableObject {
     var badgeCount : Int = 0
     @Published var timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
     
-    @Published var date1 : Date = Calendar.current.date(from: DateComponents(hour: 8))!
-    @Published var date2 : Date = Calendar.current.date(from: DateComponents(hour: 23))!
-    @Published var date3 : Date = Date()
-    @Published var date4 : Date = Date()
-    @Published var date5 : Date = Date()
-    @Published var date6 : Date = Date()
-    
-    var finalBrush : String = "Almost Done! Final Brush of the day! Let's do it!"
+    @Published var date1 : Date = UserDefaults.standard.object(forKey: "date1") as! Date
+    @Published var date2 : Date = UserDefaults.standard.object(forKey: "date2") as! Date
+    @Published var date3 : Date = UserDefaults.standard.object(forKey: "date3") as! Date
+    @Published var date4 : Date = UserDefaults.standard.object(forKey: "date4") as! Date
+    @Published var date5 : Date = UserDefaults.standard.object(forKey: "date5") as! Date
+    @Published var date6 : Date = UserDefaults.standard.object(forKey: "date6") as! Date
     
     func getBadgeCount() -> Int {
         return self.badgeCount
@@ -39,18 +37,6 @@ class NotificationModel : ObservableObject {
                 print("Notification access not granted.", error.localizedDescription)
             }
         })
-    }
-    
-    func checkIfNotificationsPermission() -> Bool{
-        var notificationsAuthStatus : Bool = false
-        
-        UNUserNotificationCenter.current().getNotificationSettings(completionHandler: { (settings) -> Void in
-            notificationsAuthStatus = (settings.authorizationStatus == .authorized)
-            print(settings.authorizationStatus == .authorized)
-        })
-        
-        return notificationsAuthStatus
-        
     }
     
     func setNewValuesOfNotifications() -> Void {
@@ -114,7 +100,6 @@ class NotificationModel : ObservableObject {
         }
     }
     
-    
     func scheduleNotifications(){
         var hour = 0
         var minute = 0
@@ -122,40 +107,48 @@ class NotificationModel : ObservableObject {
         UNUserNotificationCenter.current().removeAllDeliveredNotifications()
         UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
         
+        UserDefaults.standard.setValue(self.timesPerDay, forKey: "timesPerDay")
+        
         if(1 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date1)
             minute = Calendar.current.component(.minute, from: date1)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 1st Brush of the Day! (1/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            UserDefaults.standard.setValue(date1, forKey: "date1")
         }
         
         if(2 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date2)
             minute = Calendar.current.component(.minute, from: date2)
-            scheduleNotification(title: "Time To Brush Your Teeth!", body: hour>=20 ? "\(finalBrush) (2/\(timesPerDay))" : "Don't miss your 2nd Brush of the Day! (2/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 2nd Brush of the Day! (2/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            UserDefaults.standard.setValue(date2, forKey: "date2")
         }
         
         if(3 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date3)
             minute = Calendar.current.component(.minute, from: date3)
-            scheduleNotification(title: "Time To Brush Your Teeth!", body: hour>=20 ? "\(finalBrush) (3/\(timesPerDay))" : "Don't miss your 3rd Brush of the Day! (3/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 3rd Brush of the Day! (3/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            UserDefaults.standard.setValue(date3, forKey: "date3")
         }
         
         if(4 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date4)
             minute = Calendar.current.component(.minute, from: date4)
-            scheduleNotification(title: "Time To Brush Your Teeth!", body: hour>=20 ? "\(finalBrush) (4/\(timesPerDay))" : "Don't miss your 4th Brush of the Day! (4/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 4th Brush of the Day! (4/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            UserDefaults.standard.setValue(date4, forKey: "date4")
         }
         
         if(5 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date5)
             minute = Calendar.current.component(.minute, from: date5)
-            scheduleNotification(title: "Time To Brush Your Teeth!", body: hour>=20 ? "\(finalBrush) (5/\(timesPerDay))" : "Don't miss your 5th Brush of the Day! (5/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 5th Brush of the Day! (5/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            UserDefaults.standard.setValue(date5, forKey: "date5")
         }
         
         if(6 <= self.timesPerDay){
             hour = Calendar.current.component(.hour, from: date6)
             minute = Calendar.current.component(.minute, from: date6)
-            scheduleNotification(title: "Time To Brush Your Teeth!", body: hour>=20 ? "\(finalBrush) (6/\(timesPerDay))" : "Don't miss your 6th Brush of the Day! (6/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 6th Brush of the Day! (6/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
+            UserDefaults.standard.setValue(date6, forKey: "date6")
         }
         
     }
