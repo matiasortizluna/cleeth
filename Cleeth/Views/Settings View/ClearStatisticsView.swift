@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ClearStatisticsView: View {
     
-    @State private var showingDialogClearStatistics : Bool = false
+    @State var showingDialogClearStatistics : Bool = false
     
     var body: some View {
         ZStack{
@@ -47,7 +47,7 @@ struct ClearStatisticsView: View {
 struct ClearStatisticsView_Previews: PreviewProvider {
     static var previews: some View {
         ClearStatisticsView()
-            .environmentObject(BrushViewModel())
-            .environmentObject(NotificationViewModel())
+            .environmentObject(BrushModel())
+            .environmentObject(NotificationModel())
     }
 }

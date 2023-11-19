@@ -7,12 +7,12 @@
 
 import Foundation
 
-class BrushViewModel : ObservableObject {
+class BrushModel : ObservableObject {
     
     @Published var timer = Timer()
     
-    @Published var clockDefaultValue = 120
-    @Published var clockCurrentValue = 120
+    @Published var clockDefaultValue = UserDefaults.standard.integer(forKey: "clockDefaultValue")
+    @Published var clockCurrentValue = UserDefaults.standard.integer(forKey: "clockCurrentValue")
     
     @Published var fillTopTeethBar: CGFloat = 0.5
     @Published var fillBottomTeethBar: CGFloat = 0.0
@@ -24,7 +24,7 @@ class BrushViewModel : ObservableObject {
     @Published var animateFinish : Bool = false
     
     @Published var hideTabBar: Bool = false
-    
+        
     func restartClock(){
         self.playStopButton.toggle()
         
@@ -59,6 +59,8 @@ class BrushViewModel : ObservableObject {
     func setNewValueForClock(new_value : Int){
         self.clockDefaultValue = new_value
         self.clockCurrentValue = self.clockDefaultValue
+        UserDefaults.standard.set(self.clockDefaultValue, forKey: "clockDefaultValue")
+        UserDefaults.standard.set(self.clockCurrentValue, forKey: "clockCurrentValue")   
     }
     
     func secondsToMinutesSeconds() -> (Int, Int) {

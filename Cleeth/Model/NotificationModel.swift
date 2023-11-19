@@ -9,9 +9,10 @@ import Foundation
 import UserNotifications
 import UIKit
 
-class NotificationViewModel : ObservableObject {
+class NotificationModel : ObservableObject {
     
-    @Published var timesPerDay : Int = 2
+    var badgeCount : Int = 0
+    @Published var timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
     
     @Published var date1 : Date = Calendar.current.date(from: DateComponents(hour: 8))!
     @Published var date2 : Date = Calendar.current.date(from: DateComponents(hour: 23))!
@@ -20,9 +21,7 @@ class NotificationViewModel : ObservableObject {
     @Published var date5 : Date = Date()
     @Published var date6 : Date = Date()
     
-    private var badgeCount : Int = 0
-    
-    private var finalBrush : String = "Almost Done! Final Brush of the day! Let's do it!"
+    var finalBrush : String = "Almost Done! Final Brush of the day! Let's do it!"
     
     func getBadgeCount() -> Int {
         return self.badgeCount

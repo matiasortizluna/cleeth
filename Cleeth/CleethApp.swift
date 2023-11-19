@@ -10,10 +10,23 @@ import SwiftUI
 @main
 struct CleethApp: App {
     
-    @StateObject var brushTimeModel = BrushViewModel()
-    @StateObject var notificationViewModel = NotificationViewModel()
+    @StateObject var brushTimeModel = BrushModel()
+    @StateObject var notificationViewModel = NotificationModel()
     
     @Environment(\.scenePhase) private var scenePhase
+    
+    init(){
+        
+        UserDefaults.standard.register(
+            defaults: [
+                "clockDefaultValue": 3,
+                "clockCurrentValue": 3,
+                "timesPerDay": 5
+                
+            ]
+        )
+        
+    }
     
     var body: some Scene {
         WindowGroup {
@@ -27,7 +40,7 @@ struct CleethApp: App {
                 self.notificationViewModel.setBadgeCount(newValue: 0)
             }
         }
-    
+        
         
     }
     

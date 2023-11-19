@@ -15,15 +15,14 @@
 		0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E8F2029A036F400C68D69 /* NotificationsView.swift */; };
 		0F64F7DD2B0A5FBE009E657E /* SyncCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */; };
 		0F64F7DF2B0A6063009E657E /* ClearStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */; };
-		0F7654072B07E1FC0028910D /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7654062B07E1FC0028910D /* UserData.swift */; };
 		0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D68299E6A4300B0FC0A /* BrushView.swift */; };
 		0F794D6B299E6ABA00B0FC0A /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D6A299E6ABA00B0FC0A /* StatisticsView.swift */; };
 		0F794D6D299E6ACA00B0FC0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */; };
-		0F8566C72B07B5F7006482C0 /* BrushViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */; };
+		0F8566C72B07B5F7006482C0 /* BrushModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8566C62B07B5F7006482C0 /* BrushModel.swift */; };
 		0FC6FE0C2AD6F80C002E5E9B /* TeethStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */; };
 		0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */; };
 		0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */; };
-		0FD89A302B083EC20013D0BA /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */; };
+		0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */; };
 		0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE54422B0A29E400FA4D5B /* EventModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,15 +37,14 @@
 		0F2E8F2029A036F400C68D69 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCalendarView.swift; sourceTree = "<group>"; };
 		0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearStatisticsView.swift; sourceTree = "<group>"; };
-		0F7654062B07E1FC0028910D /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		0F794D68299E6A4300B0FC0A /* BrushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushView.swift; sourceTree = "<group>"; };
 		0F794D6A299E6ABA00B0FC0A /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
-		0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushViewModel.swift; sourceTree = "<group>"; };
+		0F8566C62B07B5F7006482C0 /* BrushModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushModel.swift; sourceTree = "<group>"; };
 		0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeethStructure.swift; sourceTree = "<group>"; };
 		0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepeatButtons.swift; sourceTree = "<group>"; };
 		0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabel.swift; sourceTree = "<group>"; };
-		0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		0FDE54422B0A29E400FA4D5B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		0FDE54442B0A2C0700FA4D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -145,9 +143,8 @@
 		0F8566C42B07B529006482C0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				0F7654062B07E1FC0028910D /* UserData.swift */,
-				0F8566C62B07B5F7006482C0 /* BrushViewModel.swift */,
-				0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */,
+				0F8566C62B07B5F7006482C0 /* BrushModel.swift */,
+				0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */,
 				0FDE54422B0A29E400FA4D5B /* EventModel.swift */,
 			);
 			path = Model;
@@ -223,10 +220,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0F7654072B07E1FC0028910D /* UserData.swift in Sources */,
 				0F64F7DF2B0A6063009E657E /* ClearStatisticsView.swift in Sources */,
 				0F794D6D299E6ACA00B0FC0A /* SettingsView.swift in Sources */,
-				0F8566C72B07B5F7006482C0 /* BrushViewModel.swift in Sources */,
+				0F8566C72B07B5F7006482C0 /* BrushModel.swift in Sources */,
 				0F64F7DD2B0A5FBE009E657E /* SyncCalendarView.swift in Sources */,
 				0F06EE6D2806366700770031 /* ContentView.swift in Sources */,
 				0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */,
@@ -236,7 +232,7 @@
 				0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */,
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
-				0FD89A302B083EC20013D0BA /* NotificationViewModel.swift in Sources */,
+				0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */,
 				0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */,
 				0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */,
 			);

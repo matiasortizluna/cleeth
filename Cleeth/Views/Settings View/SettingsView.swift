@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @EnvironmentObject var brushTimeModel : BrushViewModel
-    @State private var time : Int = 2
+    @EnvironmentObject var brushTimeModel : BrushModel
+    @State var time : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")
     
     var body: some View {
         
@@ -93,8 +93,8 @@ struct SettingsView: View {
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()
-            .environmentObject(BrushViewModel())
-            .environmentObject(NotificationViewModel())
+            .environmentObject(BrushModel())
+            .environmentObject(NotificationModel())
     }
 }
 

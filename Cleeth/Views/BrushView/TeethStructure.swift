@@ -9,7 +9,7 @@ import SwiftUI
 
 struct TeethStructure: View {
     
-    @EnvironmentObject var brushTimeModel : BrushViewModel
+    @EnvironmentObject var brushTimeModel : BrushModel
     
     var body: some View {
         
@@ -62,6 +62,6 @@ struct TeethStructure: View {
 
 #Preview {
     TeethStructure()
-        .environmentObject(BrushViewModel())
-        .environmentObject(NotificationViewModel())
+        .environmentObject(BrushModel())
+        .environmentObject(NotificationModel())
 }

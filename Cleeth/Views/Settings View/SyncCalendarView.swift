@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SyncCalendarView: View {
     
-    private var eventModel : EventModel = EventModel()
-    @State private var showingDialogEventCalendar : Bool = false
+    var eventModel : EventModel = EventModel()
+    @State var showingDialogEventCalendar : Bool = false
     
     
     var body: some View {
@@ -51,7 +51,7 @@ struct SyncCalendarView: View {
 struct SyncCalendarView_Previews: PreviewProvider {
     static var previews: some View {
         SyncCalendarView()
-            .environmentObject(BrushViewModel())
-            .environmentObject(NotificationViewModel())
+            .environmentObject(BrushModel())
+            .environmentObject(NotificationModel())
     }
 }

@@ -9,7 +9,7 @@ import SwiftUI
 
 struct NotificationsView: View {
     
-    @EnvironmentObject var notificationViewModel : NotificationViewModel
+    @EnvironmentObject var notificationViewModel : NotificationModel
     
     var body: some View {
         
@@ -79,8 +79,8 @@ struct NotificationsView: View {
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
-            .environmentObject(BrushViewModel())
-            .environmentObject(NotificationViewModel())
+            .environmentObject(BrushModel())
+            .environmentObject(NotificationModel())
     }
 }
 

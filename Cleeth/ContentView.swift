@@ -41,8 +41,8 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-            .environmentObject(BrushViewModel())
-            .environmentObject(NotificationViewModel())
+            .environmentObject(BrushModel())
+            .environmentObject(NotificationModel())
     }
 }
 

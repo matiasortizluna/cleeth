@@ -9,7 +9,7 @@ import SwiftUI
 
 struct PlayRepeatButtons: View {
     
-    @EnvironmentObject var brushTimeModel : BrushViewModel
+    @EnvironmentObject var brushTimeModel : BrushModel
     
     var body: some View {
         
@@ -71,6 +71,6 @@ struct PlayRepeatButtons: View {
 
 #Preview {
     PlayRepeatButtons()
-        .environmentObject(BrushViewModel())
-        .environmentObject(NotificationViewModel())
+        .environmentObject(BrushModel())
+        .environmentObject(NotificationModel())
 }
