@@ -147,6 +147,11 @@ struct EmojiImage: View {
     
 }
 
+class BackgroundViewAnimationModel : ObservableObject {
+    @Published var startAnimation : Bool = false
+    @Published var startAnimation2 : Bool = false
+}
+
 extension Image{
     
     init(isSystemName: Bool, imageName: String) {
@@ -161,4 +166,6 @@ extension Image{
 
 #Preview {
     BackgroundView()
+        .environmentObject(BrushViewModel())
+        .environmentObject(NotificationViewModel())
 }

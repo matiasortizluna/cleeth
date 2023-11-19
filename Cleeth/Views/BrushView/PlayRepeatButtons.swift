@@ -70,5 +70,7 @@ struct PlayRepeatButtons: View {
 }
 
 #Preview {
-    PlayRepeatButtons().environmentObject(BrushViewModel())
+    PlayRepeatButtons()
+        .environmentObject(BrushViewModel())
+        .environmentObject(NotificationViewModel())
 }

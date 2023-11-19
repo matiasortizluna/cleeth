@@ -19,8 +19,9 @@ struct NotificationsView: View {
                 
                 Button("Request Permission") {
                     print("Requesting Permission")
-                    Helper.requestNotificationsPermission()
+                    self.notificationViewModel.requestNotificationsPermission()
                 }
+                .foregroundStyle(Color(.cleethGreen))
                 
             }
             
@@ -63,22 +64,12 @@ struct NotificationsView: View {
         .navigationBarTitleDisplayMode(.large)
         .onChange(of: self.notificationViewModel.timesPerDay, {
             
+            self.notificationViewModel.setNewValuesOfNotifications()
             
-            self.notificationViewModel.date1 = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 1)))!
-            
-            self.notificationViewModel.date2  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 2)))!
-            
-            self.notificationViewModel.date3  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 3)))!
-            
-            self.notificationViewModel.date4  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 4)))!
-            
-            self.notificationViewModel.date5  = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 5)))!
-            
-            self.notificationViewModel.date6 = Calendar.current.date(from: DateComponents(hour: Helper.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.notificationViewModel.timesPerDay, time: 6)))!
         })
         .onDisappear(perform: {
             
-            self.notificationViewModel.scheduleLocalNotifications()
+            self.notificationViewModel.scheduleNotifications()
             
         })
     }
@@ -88,6 +79,7 @@ struct NotificationsView: View {
 struct NotificationsView_Previews: PreviewProvider {
     static var previews: some View {
         NotificationsView()
+            .environmentObject(BrushViewModel())
             .environmentObject(NotificationViewModel())
     }
 }

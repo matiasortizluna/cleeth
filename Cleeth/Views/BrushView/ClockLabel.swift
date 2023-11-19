@@ -24,11 +24,13 @@ struct ClockLabel: View {
                     .opacity(0.2)
                 
             })
-            
+        
     }
 }
 
 #Preview {
-    ClockLabel().environmentObject(BrushViewModel())
+    ClockLabel()
+        .environmentObject(BrushViewModel())
+        .environmentObject(NotificationViewModel())
 }
 

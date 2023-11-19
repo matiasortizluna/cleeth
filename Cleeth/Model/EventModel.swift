@@ -13,7 +13,6 @@ class EventModel {
     
     let eventStore  = EKEventStore()
     
-    
     func requestAccess() -> Void {
         
         eventStore.requestFullAccessToEvents(completion: {success, error in
