@@ -5,6 +5,9 @@ Cleeth green: #2A9D8F
 
 Tasks:
 
+Remove All Events of Cleeth.
+Fix Clock Label Bug.
+
 About
     Donations
 Share
