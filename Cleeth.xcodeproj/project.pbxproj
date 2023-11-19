@@ -24,6 +24,7 @@
 		0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */; };
 		0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */; };
 		0FD89A302B083EC20013D0BA /* NotificationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */; };
+		0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE54422B0A29E400FA4D5B /* EventModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,8 @@
 		0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepeatButtons.swift; sourceTree = "<group>"; };
 		0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabel.swift; sourceTree = "<group>"; };
 		0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationViewModel.swift; sourceTree = "<group>"; };
+		0FDE54422B0A29E400FA4D5B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
+		0FDE54442B0A2C0700FA4D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +81,7 @@
 		0F06EE692806366700770031 /* Cleeth */ = {
 			isa = PBXGroup;
 			children = (
+				0FDE54442B0A2C0700FA4D5B /* Info.plist */,
 				0F06EE6A2806366700770031 /* CleethApp.swift */,
 				0F06EE6C2806366700770031 /* ContentView.swift */,
 				0F8566C42B07B529006482C0 /* Model */,
@@ -144,6 +148,7 @@
 				0F8566C82B07B756006482C0 /* BackgroundViewAnimationModel.swift */,
 				0F7654062B07E1FC0028910D /* UserData.swift */,
 				0FD89A2F2B083EC20013D0BA /* NotificationViewModel.swift */,
+				0FDE54422B0A29E400FA4D5B /* EventModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -235,6 +240,7 @@
 				0F7654092B07EAF70028910D /* Helper.swift in Sources */,
 				0F794D6B299E6ABA00B0FC0A /* StatisticsView.swift in Sources */,
 				0F23B2B02AD2ED49007D2BC0 /* BackgroundView.swift in Sources */,
+				0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */,
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
 				0FD89A302B083EC20013D0BA /* NotificationViewModel.swift in Sources */,
@@ -375,8 +381,10 @@
 				DEVELOPMENT_TEAM = 4P65TXXV85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cleeth/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cleeth;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Please Allow Access for Calendar Integration";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -413,8 +421,10 @@
 				DEVELOPMENT_TEAM = 4P65TXXV85;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Cleeth/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Cleeth;
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.healthcare-fitness";
+				INFOPLIST_KEY_NSCalendarsUsageDescription = "Please Allow Access for Calendar Integration";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

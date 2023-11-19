@@ -1,17 +1,9 @@
-Notes.txt
-
-# Cleeth
-App dientes iphone/apple watch
+# Cleeth Notes.txt
 
 Colors: 
 Cleeth green: #2A9D8F
 
 Tasks:
-
-Settings Section.
-
-Create events with Calendar.
-Create Dark Mode.
 
 About
     Donations
@@ -31,6 +23,10 @@ How many times per day
 Per week
 Per month
 Per year
+
+To Be Done:
+
+Dark Mode.
 
 Completion Badges.
 3 times per day
