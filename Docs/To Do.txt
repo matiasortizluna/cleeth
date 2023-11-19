@@ -1,0 +1,42 @@
+# Cleeth Notes.txt
+
+Colors: 
+Cleeth green: #2A9D8F
+
+Tasks:
+
+About
+    Donations
+Share
+    Share Message.
+Evaluate
+    Connect to App Store.
+        Ask if they want to comment.
+Feedback and Support
+    Send email to developer.
+
+
+Clear Statistics
+
+Statistics Section.
+How many times per day
+Per week
+Per month
+Per year
+
+To Be Done:
+
+Dark Mode.
+
+Completion Badges.
+3 times per day
+5 time per day
+3 days
+1 week
+2 weeks
+21 days
+1 month
+2 months
+3 months
+6 months
+1 year
