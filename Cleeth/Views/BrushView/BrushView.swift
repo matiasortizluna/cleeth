@@ -32,10 +32,17 @@ struct BrushView: View {
                 
                 Spacer()
                 
-                ClockLabel()
-                    .padding(.bottom,-25)
-                    .scaleEffect(self.brushViewModel.animatePlay ? 1.0 : 1.1)
-                    .animation(self.brushViewModel.animatePlay ? Animation.easeInOut(duration: 1.0).repeatForever() :  Animation.easeOut(duration: 3.0), value: self.brushViewModel.animatePlay)
+                if UIScreen.main.bounds.height<700{
+                    Spacer()
+                }
+                
+                HStack(){
+                    
+                    ClockLabel()
+                        .padding(.bottom, UIScreen.main.bounds.height<700 ? -60 : -25)
+                        .scaleEffect(self.brushViewModel.animatePlay ? 1.0 : 1.1)
+                        .animation(self.brushViewModel.animatePlay ? Animation.easeInOut(duration: 1.0).repeatForever() :  Animation.easeOut(duration: 3.0), value: self.brushViewModel.animatePlay)
+                }
                 
                 ZStack(){
                     
@@ -50,11 +57,11 @@ struct BrushView: View {
                     PlayRepeatButtons()
                     
                 }
-                
-                Spacer()
+                if UIScreen.main.bounds.height>700{
+                    Spacer()
+                }
                 
             }
-            
             
             ZStack{
                 
