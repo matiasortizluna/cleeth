@@ -26,7 +26,7 @@ struct SettingsView: View {
                             Text("\($0) minutes")
                         })
                     })
-
+                    
                     
                 }
                 .onChange(of: self.time, {
@@ -49,17 +49,18 @@ struct SettingsView: View {
                 
                 Section(header: Text("About")) {
                     
-                    HStack{
-                        Image(systemName: "info.circle")
-                        Text("About")
+                    NavigationLink(destination: AboutView()){
+                        HStack{
+                            Image(systemName: "info.circle")
+                            Text("About")
+                        }
+                        .foregroundStyle(Color.primary)
                     }
-                    
                     
                     HStack{
                         Image(systemName: "square.and.arrow.up")
                         Text("Share")
                     }
-                    
                     
                     HStack{
                         Image(systemName: "star")

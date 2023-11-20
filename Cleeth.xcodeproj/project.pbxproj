@@ -22,6 +22,7 @@
 		0FC6FE0C2AD6F80C002E5E9B /* TeethStructure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */; };
 		0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */; };
 		0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */; };
+		0FD0AD6B2B0B81A100565501 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0AD6A2B0B81A100565501 /* AboutView.swift */; };
 		0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */; };
 		0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE54422B0A29E400FA4D5B /* EventModel.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +45,7 @@
 		0FC6FE0B2AD6F80C002E5E9B /* TeethStructure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeethStructure.swift; sourceTree = "<group>"; };
 		0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepeatButtons.swift; sourceTree = "<group>"; };
 		0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabel.swift; sourceTree = "<group>"; };
+		0FD0AD6A2B0B81A100565501 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
 		0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		0FDE54422B0A29E400FA4D5B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
 		0FDE54442B0A2C0700FA4D5B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				0F2E8F2029A036F400C68D69 /* NotificationsView.swift */,
 				0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */,
 				0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */,
+				0FD0AD6A2B0B81A100565501 /* AboutView.swift */,
 			);
 			path = "Settings View";
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0FD0AD6B2B0B81A100565501 /* AboutView.swift in Sources */,
 				0F64F7DF2B0A6063009E657E /* ClearStatisticsView.swift in Sources */,
 				0F794D6D299E6ACA00B0FC0A /* SettingsView.swift in Sources */,
 				0F8566C72B07B5F7006482C0 /* BrushModel.swift in Sources */,

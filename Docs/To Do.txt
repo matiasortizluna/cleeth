@@ -9,15 +9,20 @@ Remove All Events of Cleeth.
 Fix Clock Label Bug.
 
 About
-    Donations
+	Donations
 Share
-    Share Message.
+	Share Message.
 Evaluate
-    Connect to App Store.
-        Ask if they want to comment.
+	Connect to App Store.
+	Ask if they want to comment.
 Feedback and Support
-    Send email to developer.
+	Send email to developer.
 
+
+Remove Tab Bar.
+Add Button at the bottom. To Open Settings.
+
+To Be Done:
 
 Clear Statistics
 
@@ -27,7 +32,6 @@ Per week
 Per month
 Per year
 
-To Be Done:
 
 Dark Mode.
 
