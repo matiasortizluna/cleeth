@@ -41,13 +41,34 @@ In the Settings Tab, users can:
 - Clear events created by the app in the Calendar.
 - View the current version of the app.
 
-
 # Technical Description (requires Update)
 This app was fully developed in SwiftUI, with a View-Model approach, using different Views, Animations, Environment Object to
 share data to orchestrate the animations and timer features.
 
 # Skills
 Swift, SwiftUI, Foundation, UserNotifications, EventKit, StoreKit.
+
+# Video
+
+https://github.com/matiasortizluna/cleeth/assets/64530615/e346d875-fa32-47cf-a4c4-b953cc2b7596
+
+# Screenshoots
+
+![Cleeth - SettingsView](https://github.com/matiasortizluna/cleeth/assets/64530615/edee1ad7-ceb4-46f8-b5af-aaa08caa4d5b)
+![Cleeth - SettingsView - SyncWithCalendarDialog](https://github.com/matiasortizluna/cleeth/assets/64530615/ff8fefe4-487b-4a3a-8564-d36fc5fc353f)
+![Cleeth - SettingsView - SetBrushTime](https://github.com/matiasortizluna/cleeth/assets/64530615/81cc3b52-99a9-4fff-8752-6591268b8e0a)
+![Cleeth - SettingsView - RateView](https://github.com/matiasortizluna/cleeth/assets/64530615/68970e4d-b41b-43f7-9115-c0906abf440e)
+![Cleeth - SettingsView - PrivacyPolicyView](https://github.com/matiasortizluna/cleeth/assets/64530615/5dce2b5f-6547-4319-8551-892c6284baea)
+![Cleeth - SettingsView - NotificationsView](https://github.com/matiasortizluna/cleeth/assets/64530615/d36adf6e-dca2-4170-9c73-47a9a319d46f)
+![Cleeth - SettingsView - AboutView](https://github.com/matiasortizluna/cleeth/assets/64530615/d5b94225-7dbf-4558-86c2-7724bcfe956e)
+![Cleeth - Calendar](https://github.com/matiasortizluna/cleeth/assets/64530615/eeb77eb2-2a0f-4369-aec5-25197cbc0725)
+![Cleeth - BrushView - Initial 2min](https://github.com/matiasortizluna/cleeth/assets/64530615/bb1beb5a-e1b8-44e5-8b51-fcf5e1754a79)
+![Cleeth - BrushView - Going 2min](https://github.com/matiasortizluna/cleeth/assets/64530615/68d8df0b-b906-496b-88be-1ec5406ff2b6)
+![Cleeth - BrushView - End](https://github.com/matiasortizluna/cleeth/assets/64530615/207c5c10-05a6-4e67-92a4-e84698634625)
+
+
+# Previews
+
 
 # Keywords
 Habit, Health, Teeth, Tooth, Toothbrush, Clean, Habit
