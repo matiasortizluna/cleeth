@@ -28,13 +28,18 @@ Beside these previous Human-Interface and Technical focused features, the app al
 More features to come soon! 😁
 
 # Use Cases
-Launch the app, an incorporated timer will present. Click on the play button to start the timer, click on the stop button to stop the timer. When the timer is stopped, it restarts to the intiial point. If the timer reaches 00:00, the app shows a "Congratulations" screen.
-In the Settings Tab, can be modified the timer default time. Also, it can be set the number of notifications that the user wants to be shown during the day. To activate the integration of the App to the Calendar, so a new event is created for each day during one month at the selected times of the notificaitons. 
-Also the About section where is included information about the App, the Developer and Acknowledgements.
-Also the Privacy Policy
-And the Evaluate option to rate the App in the App Store.
-The option to Clear the Events created by the App in the Calendar.
-information about the version of the App.
+Launch the app, an incorporated timer will present. 
+Click on the play button to start the timer, click on the stop button to stop the timer. 
+When the timer is stopped, it restarts to the intiial point. If the timer reaches 00:00, the app shows a "Congratulations" screen.
+
+In the Settings Tab, users can:
+- Modify the default timer duration.
+- Set the desired number of notifications to be displayed throughout the day.
+- Enable integration with the device's Calendar, creating a new event daily for one month at the specified notification times.
+- Access information about the app, including details about the developer, acknowledgments, and the app's privacy policy.
+- Use the Evaluate option to rate the app in the App Store.
+- Clear events created by the app in the Calendar.
+- View the current version of the app.
 
 
 # Technical Description (requires Update)
