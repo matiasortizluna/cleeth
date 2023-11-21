@@ -27,6 +27,9 @@ Beside these previous Human-Interface and Technical focused features, the app al
 
 More features to come soon! 😁
 
+# Keywords
+Habit, Health, Teeth, Tooth, Toothbrush, Clean, Habit
+
 # Use Cases
 Launch the app, an incorporated timer will present. 
 Click on the play button to start the timer, click on the stop button to stop the timer. 
@@ -41,7 +44,7 @@ In the Settings Tab, users can:
 - Clear events created by the app in the Calendar.
 - View the current version of the app.
 
-# Technical Description (requires Update)
+# Technical Description
 This app was fully developed in SwiftUI, with a View-Model approach, using different Views, Animations, Environment Object to
 share data to orchestrate the animations and timer features.
 
@@ -54,23 +57,23 @@ https://github.com/matiasortizluna/cleeth/assets/64530615/e346d875-fa32-47cf-a4c
 
 # Screenshoots
 
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/edee1ad7-ceb4-46f8-b5af-aaa08caa4d5b" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/ff8fefe4-487b-4a3a-8564-d36fc5fc353f" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/81cc3b52-99a9-4fff-8752-6591268b8e0a" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/68970e4d-b41b-43f7-9115-c0906abf440e" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/5dce2b5f-6547-4319-8551-892c6284baea" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/d36adf6e-dca2-4170-9c73-47a9a319d46f" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/d5b94225-7dbf-4558-86c2-7724bcfe956e" width=30% height=30%>
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/eeb77eb2-2a0f-4369-aec5-25197cbc0725" width=30% height=30%>
 <img src="https://github.com/matiasortizluna/cleeth/assets/64530615/bb1beb5a-e1b8-44e5-8b51-fcf5e1754a79" width=30% height=30%>
 <img src="https://github.com/matiasortizluna/cleeth/assets/64530615/68d8df0b-b906-496b-88be-1ec5406ff2b6" width=30% height=30%>
 <img src="https://github.com/matiasortizluna/cleeth/assets/64530615/207c5c10-05a6-4e67-92a4-e84698634625" width=30% height=30%>
 
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/edee1ad7-ceb4-46f8-b5af-aaa08caa4d5b" width=30% height=30%>
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/81cc3b52-99a9-4fff-8752-6591268b8e0a" width=30% height=30%>
+
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/ff8fefe4-487b-4a3a-8564-d36fc5fc353f" width=30% height=30%>
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/eeb77eb2-2a0f-4369-aec5-25197cbc0725" width=30% height=30%>
+
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/d5b94225-7dbf-4558-86c2-7724bcfe956e" width=30% height=30%>
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/68970e4d-b41b-43f7-9115-c0906abf440e" width=30% height=30%>
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/5dce2b5f-6547-4319-8551-892c6284baea" width=30% height=30%>
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/d36adf6e-dca2-4170-9c73-47a9a319d46f" width=30% height=30%>
+
 # Previews
 
-
-# Keywords
-Habit, Health, Teeth, Tooth, Toothbrush, Clean, Habit
 
 # Support URL
 https://github.com/matiasortizluna
