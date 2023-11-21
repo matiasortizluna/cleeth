@@ -54,7 +54,7 @@ https://github.com/matiasortizluna/cleeth/assets/64530615/e346d875-fa32-47cf-a4c
 
 # Screenshoots
 
-<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/edee1ad7-ceb4-46f8-b5af-aaa08caa4d5b" " width=20% height=20%>
+<img src="https://github.com/matiasortizluna/cleeth/assets/64530615/edee1ad7-ceb4-46f8-b5af-aaa08caa4d5b" width=20% height=20%>
 ![Cleeth - SettingsView - SyncWithCalendarDialog](https://github.com/matiasortizluna/cleeth/assets/64530615/ff8fefe4-487b-4a3a-8564-d36fc5fc353f)
 ![Cleeth - SettingsView - SetBrushTime](https://github.com/matiasortizluna/cleeth/assets/64530615/81cc3b52-99a9-4fff-8752-6591268b8e0a)
 ![Cleeth - SettingsView - RateView](https://github.com/matiasortizluna/cleeth/assets/64530615/68970e4d-b41b-43f7-9115-c0906abf440e)
