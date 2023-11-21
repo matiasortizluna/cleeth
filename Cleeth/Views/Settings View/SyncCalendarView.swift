@@ -13,12 +13,13 @@ struct SyncCalendarView: View {
     @State var showingDialogEventCalendar : Bool = false
     
     var body: some View {
+        
         Button(action: {
-            print("Button tapped!")
+            print("Sync Calendar Button tapped!")
             self.eventModel.requestAccess()
+            print("Function Requesting Access Success")
             self.showingDialogEventCalendar.toggle()
-            
-        }) {
+        }){
             HStack{
                 Image(systemName: "calendar")
                     .foregroundStyle(Color(.cleethGreen))
@@ -30,8 +31,8 @@ struct SyncCalendarView: View {
         .confirmationDialog("Do you want to Sync with Calendar?", isPresented: self.$showingDialogEventCalendar, titleVisibility: .visible, actions: {
             
             Button("Yes, Sync Now") {
-                print("Sync with Calendar")
-                self.eventModel.deleteEvents()
+                print("Sync with Calendar Confirmation Dialog Button Tapped")
+                //self.eventModel.deleteEvents()
                 self.eventModel.addEventsToCalendar()
             }
             .keyboardShortcut(.defaultAction)

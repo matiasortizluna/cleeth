@@ -11,7 +11,7 @@ import StoreKit
 struct SettingsView: View {
     
     @EnvironmentObject var brushTimeModel : BrushModel
-    @State var time : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")
+    @State var time : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")/60
     @Environment(\.requestReview) var requestReview
     
     var body: some View {

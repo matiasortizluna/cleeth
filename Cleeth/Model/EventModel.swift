@@ -13,13 +13,41 @@ class EventModel {
     let eventStore  = EKEventStore()
     let todayDate : Date = Date()
     
-    func requestAccess() -> Void {
-        eventStore.requestFullAccessToEvents(completion: {success, error in
-            if success, error == nil {
-                print("Access has been granted.")
+    func requestAccess2() {
+        let eventStore = EKEventStore()
+        
+        eventStore.requestAccess(to: .event) { granted, error in
+            if granted {
+                print("Got access")
+                
+                if let defaultCalendar = eventStore.defaultCalendarForNewEvents {
+                    print("Default Calendar Identifier: \(defaultCalendar.calendarIdentifier)")
+                } else {
+                    print("No default calendar found")
+                }
+            } else {
+                print("The app is not permitted to access events, make sure to grant permission in the settings and try again")
             }
-        })
+        }
     }
+    
+    func requestAccess() {
+        let status = EKEventStore.authorizationStatus(for: .event)
+        if status == .authorized {
+            print("Access is already granted.")
+        } else {
+            print(status.rawValue)
+            eventStore.requestFullAccessToEvents { success, error in
+                if success && error == nil {
+                    print("Access has been granted.")
+                } else {
+                    print(error)
+                    print("Access request failed with error: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            }
+        }
+    }
+    
     
     func addEventsToCalendar() -> Void {
         
@@ -101,7 +129,7 @@ class EventModel {
         
         let eventStore = EKEventStore()
         
-        let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents!])
+        let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
         let existingEvents = eventStore.events(matching: predicate)
         
         print(existingEvents.count)
