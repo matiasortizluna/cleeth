@@ -24,6 +24,7 @@
 		0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */; };
 		0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */; };
 		0FD0AD6B2B0B81A100565501 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD0AD6A2B0B81A100565501 /* AboutView.swift */; };
+		0FD1D0B82B0FCC8800E01967 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD1D0B72B0FCC8800E01967 /* Helper.swift */; };
 		0FD1E5CD2B0BDC44007638AD /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD1E5CC2B0BDC44007638AD /* PrivacyPolicyView.swift */; };
 		0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */; };
 		0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FDE54422B0A29E400FA4D5B /* EventModel.swift */; };
@@ -49,6 +50,7 @@
 		0FC6FE0D2AD73A79002E5E9B /* PlayRepeatButtons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayRepeatButtons.swift; sourceTree = "<group>"; };
 		0FC6FE0F2AD73CE0002E5E9B /* ClockLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClockLabel.swift; sourceTree = "<group>"; };
 		0FD0AD6A2B0B81A100565501 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		0FD1D0B72B0FCC8800E01967 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		0FD1E5CC2B0BDC44007638AD /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
 		0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationModel.swift; sourceTree = "<group>"; };
 		0FDE54422B0A29E400FA4D5B /* EventModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventModel.swift; sourceTree = "<group>"; };
@@ -155,6 +157,7 @@
 				0F8566C62B07B5F7006482C0 /* BrushModel.swift */,
 				0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */,
 				0FDE54422B0A29E400FA4D5B /* EventModel.swift */,
+				0FD1D0B72B0FCC8800E01967 /* Helper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 				0F64F7DD2B0A5FBE009E657E /* SyncCalendarView.swift in Sources */,
 				0F06EE6D2806366700770031 /* ContentView.swift in Sources */,
 				0FC6FE0E2AD73A79002E5E9B /* PlayRepeatButtons.swift in Sources */,
+				0FD1D0B82B0FCC8800E01967 /* Helper.swift in Sources */,
 				0FC6FE0C2AD6F80C002E5E9B /* TeethStructure.swift in Sources */,
 				0F794D6B299E6ABA00B0FC0A /* StatisticsView.swift in Sources */,
 				0F23B2B02AD2ED49007D2BC0 /* BackgroundView.swift in Sources */,
@@ -377,7 +381,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Cleeth/Cleeth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleeth/Preview Content\"";
 				DEVELOPMENT_TEAM = 4P65TXXV85;
 				ENABLE_PREVIEWS = YES;
@@ -419,7 +423,7 @@
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = Cleeth/Cleeth.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_ASSET_PATHS = "\"Cleeth/Preview Content\"";
 				DEVELOPMENT_TEAM = 4P65TXXV85;
 				ENABLE_PREVIEWS = YES;

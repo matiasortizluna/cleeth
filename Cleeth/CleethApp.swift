@@ -27,7 +27,8 @@ struct CleethApp: App {
                 "date3" : Date(),
                 "date4" : Date(),
                 "date5" : Date(),
-                "date6" : Date()
+                "date6" : Date(),
+                "notificationsProvided" : false
             ]
         )
         
@@ -39,7 +40,9 @@ struct CleethApp: App {
                 .environmentObject(brushTimeModel)
                 .environmentObject(notificationViewModel)
                 .onAppear(perform: {
-                    self.notificationViewModel.requestNotificationsPermission()
+                    
+                    Helper.requestNotificationsPermission()
+                    
                 })
         }
         .onChange(of: scenePhase) { phase in

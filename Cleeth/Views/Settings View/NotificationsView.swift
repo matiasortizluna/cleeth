@@ -22,10 +22,11 @@ struct NotificationsView: View {
                         UIApplication.shared.open(settingsURL)
                     }
                 }, label: {
-                    Text(self.notificationViewModel.notificationsProvided == false ? "Access Already Granted" : "Enable Notifications in Settings")
+                    
+                    Text(self.notificationViewModel.notificationsProvided == true ? "Access Already Granted" : "Enable Notifications in Settings")
                 })
-                .foregroundStyle(self.notificationViewModel.notificationsProvided == false ? Color.gray : Color(.cleethGreen))
-                .disabled(self.notificationViewModel.notificationsProvided == false)
+                .foregroundStyle(self.notificationViewModel.notificationsProvided == true ? Color.gray : Color(.cleethGreen))
+                .disabled(self.notificationViewModel.notificationsProvided == true)
                 
             }
             

@@ -11,7 +11,8 @@ import UserNotifications
 class NotificationModel : ObservableObject {
     
     var badgeCount : Int = 0
-    var notificationsProvided : Bool = false
+    
+    @Published var notificationsProvided : Bool = UserDefaults.standard.bool(forKey: "notificationsProvided")
     
     @Published var timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
     
@@ -28,22 +29,6 @@ class NotificationModel : ObservableObject {
     
     func setBadgeCount(newValue: Int) -> Void {
         self.badgeCount = newValue
-    }
-    
-    func requestNotificationsPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            
-            if granted {
-                print("Notification permission granted")
-                self.notificationsProvided = true
-            } else if let error = error {
-                print("Error requesting notification permission: \(error.localizedDescription)")
-                self.notificationsProvided = false
-            } else {
-                print("Notification permission denied")
-                self.notificationsProvided = false
-            }
-        }
     }
     
     func setNewValuesOfNotifications() -> Void {

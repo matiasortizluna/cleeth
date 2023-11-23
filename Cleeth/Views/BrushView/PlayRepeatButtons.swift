@@ -64,6 +64,7 @@ struct PlayRepeatButtons: View {
                 })
             
         })
+        .allowsHitTesting(!self.brushTimeModel.animateStop)
         
     }
     
