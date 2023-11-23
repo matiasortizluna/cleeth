@@ -17,11 +17,15 @@ struct NotificationsView: View {
             
             Section(header: Text("Notifications Permissions")) {
                 
-                Button("Request Permission") {
-                    print("Requesting Permission")
-                    self.notificationViewModel.requestNotificationsPermission()
-                }
-                .foregroundStyle(Color(.cleethGreen))
+                Button(action: {
+                    if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                        UIApplication.shared.open(settingsURL)
+                    }
+                }, label: {
+                    Text(self.notificationViewModel.notificationsProvided == false ? "Access Already Granted" : "Enable Notifications in Settings")
+                })
+                .foregroundStyle(self.notificationViewModel.notificationsProvided == false ? Color.gray : Color(.cleethGreen))
+                .disabled(self.notificationViewModel.notificationsProvided == false)
                 
             }
             
@@ -72,19 +76,6 @@ struct NotificationsView: View {
             self.notificationViewModel.scheduleNotifications()
             
         })
-    }
-    
-    
-    func requestNotificationPermission() {
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
-            if granted {
-                print("Notification permission granted")
-            } else if let error = error {
-                print("Error requesting notification permission: \(error.localizedDescription)")
-            } else {
-                print("Notification permission denied")
-            }
-        }
     }
     
 }

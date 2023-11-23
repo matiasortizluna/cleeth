@@ -38,6 +38,9 @@ struct CleethApp: App {
             ContentView()
                 .environmentObject(brushTimeModel)
                 .environmentObject(notificationViewModel)
+                .onAppear(perform: {
+                    self.notificationViewModel.requestNotificationsPermission()
+                })
         }
         .onChange(of: scenePhase) { phase in
             if phase == .active {
@@ -45,7 +48,6 @@ struct CleethApp: App {
                 self.notificationViewModel.setBadgeCount(newValue: 0)
             }
         }
-        
         
     }
     
