@@ -13,24 +13,6 @@ class EventModel {
     let eventStore  = EKEventStore()
     let todayDate : Date = Date()
     
-    func requestAccess2() {
-        let eventStore = EKEventStore()
-        
-        eventStore.requestAccess(to: .event) { granted, error in
-            if granted {
-                print("Got access")
-                
-                if let defaultCalendar = eventStore.defaultCalendarForNewEvents {
-                    print("Default Calendar Identifier: \(defaultCalendar.calendarIdentifier)")
-                } else {
-                    print("No default calendar found")
-                }
-            } else {
-                print("The app is not permitted to access events, make sure to grant permission in the settings and try again")
-            }
-        }
-    }
-    
     func requestAccess() {
         let status = EKEventStore.authorizationStatus(for: .event)
         if status == .authorized {
@@ -41,7 +23,6 @@ class EventModel {
                 if success && error == nil {
                     print("Access has been granted.")
                 } else {
-                    print(error)
                     print("Access request failed with error: \(error?.localizedDescription ?? "Unknown error")")
                 }
             }

@@ -74,6 +74,19 @@ struct NotificationsView: View {
         })
     }
     
+    
+    func requestNotificationPermission() {
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
+            if granted {
+                print("Notification permission granted")
+            } else if let error = error {
+                print("Error requesting notification permission: \(error.localizedDescription)")
+            } else {
+                print("Notification permission denied")
+            }
+        }
+    }
+    
 }
 
 struct NotificationsView_Previews: PreviewProvider {
