@@ -1,6 +1,9 @@
 # Cleeth
 By Matias Ortiz Luna.
 
+# Download Cleeth in the AppStore now here: 
+https://apps.apple.com/pt/app/cleeth/id6472682824?l=en-GB
+
 # Promotional Text
 Do you struggle to brush your teeth on a regular basis? Oh no, don't tell me you don't remember the last time you brushed your teeth. Well, maybe we can help with that 😉
 
