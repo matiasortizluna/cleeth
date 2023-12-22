@@ -72,7 +72,7 @@ struct SettingsView: View {
                     
                     HStack{
                         
-                        ShareLink(items: [URL(string: "https://www.hackingwithswift.com")!], subject: Text("Check this Out!"), message: Text("Forget about forgetting to brush your teeth! Download Cleeth now in the App Store") ,label: {
+                        ShareLink(items: [URL(string: "https://apps.apple.com/tr/app/cleeth/id6472682824")!], subject: Text("Download Cleeth Now!"), message: Text("Hey! Check out this app that helps you remember to brush your teeth!") ,label: {
                             HStack{
                                 Image(systemName: "square.and.arrow.up")
                                     .foregroundStyle(Color(.cleethGreen))
