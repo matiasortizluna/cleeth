@@ -147,7 +147,7 @@ class NotificationModel : ObservableObject {
     
     
     func scheduleNotification(title: String, body: String, badge: UInt,hour: Int, minute: Int) {
-        self.setBadgeCount(newValue: self.getBadgeCount()+1)
+        self.setBadgeCount(newValue: 1)
         
         // Define the content
         let content = UNMutableNotificationContent()

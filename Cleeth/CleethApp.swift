@@ -48,7 +48,6 @@ struct CleethApp: App {
         .onChange(of: scenePhase) { phase in
             if phase == .active {
                 UNUserNotificationCenter.current().setBadgeCount(0)
-                self.notificationViewModel.setBadgeCount(newValue: 0)
             }
         }
         

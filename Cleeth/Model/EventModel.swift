@@ -16,14 +16,13 @@ class EventModel {
     func requestAccess() {
         let status = EKEventStore.authorizationStatus(for: .event)
         if status == .authorized {
-            print("Access is already granted.")
+            print("EKEventStore access already granted.")
         } else {
-            print(status.rawValue)
             eventStore.requestFullAccessToEvents { success, error in
                 if success && error == nil {
-                    print("Access has been granted.")
+                    print("EKEventStore access has been granted.")
                 } else {
-                    print("Access request failed with error: \(error?.localizedDescription ?? "Unknown error")")
+                    print("EKEventStore access request failed with error: \(error?.localizedDescription ?? "Unknown error")")
                 }
             }
         }
@@ -112,8 +111,6 @@ class EventModel {
         
         let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
         let existingEvents = eventStore.events(matching: predicate)
-        
-        print(existingEvents.count)
         
         for event in existingEvents {
             if event.title.contains("Cleeth"){
