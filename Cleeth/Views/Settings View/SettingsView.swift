@@ -70,6 +70,17 @@ struct SettingsView: View {
                     }
                     
                     
+                    HStack{
+                        
+                        ShareLink(items: [URL(string: "https://www.hackingwithswift.com")!], subject: Text("Check this Out!"), message: Text("Forget about forgetting to brush your teeth! Download Cleeth now in the App Store") ,label: {
+                            HStack{
+                                Image(systemName: "square.and.arrow.up")
+                                    .foregroundStyle(Color(.cleethGreen))
+                                Text("Share")
+                                    .foregroundStyle(Color.primary)
+                            }
+                        })
+                    }
                     
                     HStack{
                         Button(action: {
@@ -84,29 +95,19 @@ struct SettingsView: View {
                         .foregroundStyle(Color.primary)
                     }
                     
-//                    HStack{
-//                        
-//                        ShareLink(items: [URL(string: "https://www.hackingwithswift.com")!], subject: Text("Check this Out!"), message: Text("Forget about forgetting to brush your teeth! Download Cleeth now in the App Store") ,label: {
-//                            HStack{
-//                                Image(systemName: "square.and.arrow.up")
-//                                    .foregroundStyle(Color(.cleethGreen))
-//                                Text("Share")
-//                            }
-//                            .foregroundStyle(Color.primary)
-//                        })
-//                    }
-                    
-                    //                    HStack{
-                    //                        Button(action: {
-                    //                            print("Button Share Email tapped")
-                    //                        }, label: {
-                    //                            HStack{
-                    //                                Image(systemName: "bubble.right")
-                    //                                Text("Feedback and Support")
-                    //                            }
-                    //                        })
-                    //
-                    //                    }
+                    HStack{
+                        Button(action: {
+                            print("Button Share Email tapped")
+                        }, label: {
+                            HStack{
+                                Image(systemName: "envelope.fill")
+                                    .foregroundStyle(Color(.cleethGreen))
+                                Text("Feedback & Support")
+                                    .foregroundStyle(Color.primary)
+                            }
+                        })
+                        
+                    }
                 }
                 
                 Section(header: Text("Reset Options")){
