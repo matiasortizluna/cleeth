@@ -14,6 +14,7 @@
 		0F23B2B02AD2ED49007D2BC0 /* BackgroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F23B2AF2AD2ED49007D2BC0 /* BackgroundView.swift */; };
 		0F28560B2B0C151E00F84763 /* ClearCalendarEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28560A2B0C151E00F84763 /* ClearCalendarEventsView.swift */; };
 		0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E8F2029A036F400C68D69 /* NotificationsView.swift */; };
+		0F46EED32B35F6230018F474 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46EED22B35F6230018F474 /* OnboardingView.swift */; };
 		0F64F7DD2B0A5FBE009E657E /* SyncCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */; };
 		0F64F7DF2B0A6063009E657E /* ClearStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */; };
 		0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D68299E6A4300B0FC0A /* BrushView.swift */; };
@@ -40,6 +41,7 @@
 		0F23B2B42AD2EDD2007D2BC0 /* Cleeth.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cleeth.entitlements; sourceTree = "<group>"; };
 		0F28560A2B0C151E00F84763 /* ClearCalendarEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCalendarEventsView.swift; sourceTree = "<group>"; };
 		0F2E8F2029A036F400C68D69 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
+		0F46EED22B35F6230018F474 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCalendarView.swift; sourceTree = "<group>"; };
 		0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearStatisticsView.swift; sourceTree = "<group>"; };
 		0F794D68299E6A4300B0FC0A /* BrushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushView.swift; sourceTree = "<group>"; };
@@ -141,9 +143,18 @@
 			path = "Settings View";
 			sourceTree = "<group>";
 		};
+		0F46EED42B35F62B0018F474 /* OnboardingView */ = {
+			isa = PBXGroup;
+			children = (
+				0F46EED22B35F6230018F474 /* OnboardingView.swift */,
+			);
+			path = OnboardingView;
+			sourceTree = "<group>";
+		};
 		0F8566C32B07B510006482C0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0F46EED42B35F62B0018F474 /* OnboardingView */,
 				0F23B2B12AD2ED51007D2BC0 /* BrushView */,
 				0F23B2B32AD2ED74007D2BC0 /* Settings View */,
 				0F23B2B22AD2ED65007D2BC0 /* StatisticsView */,
@@ -245,6 +256,7 @@
 				0F794D6B299E6ABA00B0FC0A /* StatisticsView.swift in Sources */,
 				0F23B2B02AD2ED49007D2BC0 /* BackgroundView.swift in Sources */,
 				0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */,
+				0F46EED32B35F6230018F474 /* OnboardingView.swift in Sources */,
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
 				0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */,

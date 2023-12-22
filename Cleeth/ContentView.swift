@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
-    
+    @AppStorage("showOnboardingView") var showOnboardingView : Bool = true
+        
     var body: some View {
         
         TabView(selection: .constant(2)){
@@ -33,6 +34,9 @@ struct ContentView: View {
             
         }
         .accentColor(Color(.cleethGreen))
+        .fullScreenCover(isPresented: self.$showOnboardingView, content: {
+            OnboardingView(showOnboardingView: self.$showOnboardingView)
+        })
         
     }
 }
