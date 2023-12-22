@@ -17,6 +17,7 @@
 		0F46EED32B35F6230018F474 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46EED22B35F6230018F474 /* OnboardingView.swift */; };
 		0F64F7DD2B0A5FBE009E657E /* SyncCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */; };
 		0F64F7DF2B0A6063009E657E /* ClearStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */; };
+		0F7158952B364EDC0028DBC6 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7158942B364EDC0028DBC6 /* EmailHelper.swift */; };
 		0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D68299E6A4300B0FC0A /* BrushView.swift */; };
 		0F794D6B299E6ABA00B0FC0A /* StatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D6A299E6ABA00B0FC0A /* StatisticsView.swift */; };
 		0F794D6D299E6ACA00B0FC0A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */; };
@@ -44,6 +45,7 @@
 		0F46EED22B35F6230018F474 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCalendarView.swift; sourceTree = "<group>"; };
 		0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearStatisticsView.swift; sourceTree = "<group>"; };
+		0F7158942B364EDC0028DBC6 /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		0F794D68299E6A4300B0FC0A /* BrushView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrushView.swift; sourceTree = "<group>"; };
 		0F794D6A299E6ABA00B0FC0A /* StatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatisticsView.swift; sourceTree = "<group>"; };
 		0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -169,6 +171,7 @@
 				0FD89A2F2B083EC20013D0BA /* NotificationModel.swift */,
 				0FDE54422B0A29E400FA4D5B /* EventModel.swift */,
 				0FD1D0B72B0FCC8800E01967 /* Helper.swift */,
+				0F7158942B364EDC0028DBC6 /* EmailHelper.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
 				0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */,
+				0F7158952B364EDC0028DBC6 /* EmailHelper.swift in Sources */,
 				0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */,
 				0FC6FE102AD73CE0002E5E9B /* ClockLabel.swift in Sources */,
 				0F28560B2B0C151E00F84763 /* ClearCalendarEventsView.swift in Sources */,

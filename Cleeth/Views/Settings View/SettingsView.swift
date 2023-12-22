@@ -69,9 +69,7 @@ struct SettingsView: View {
                         .foregroundStyle(Color.primary)
                     }
                     
-                    
                     HStack{
-                        
                         ShareLink(items: [URL(string: "https://apps.apple.com/tr/app/cleeth/id6472682824")!], subject: Text("Download Cleeth Now!"), message: Text("Hey! Check out this app that helps you remember to brush your teeth!") ,label: {
                             HStack{
                                 Image(systemName: "square.and.arrow.up")
@@ -97,7 +95,9 @@ struct SettingsView: View {
                     
                     HStack{
                         Button(action: {
-                            print("Button Share Email tapped")
+                            EmailHelper.shared.sendEmail(subject: "Inquiry about Cleeth 🪥", body: "Hello Matias!\nI want to contact you ...", to: "matiasortizluna.contacto@gmail.com", completion: {_ in
+                                print("MailView presented")
+                            })
                         }, label: {
                             HStack{
                                 Image(systemName: "envelope.fill")
