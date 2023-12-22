@@ -14,7 +14,7 @@ struct OnboardingView: View {
     var body: some View {
         
         TabView(content: {
-            OnboardingPage(title: "Cleeth's Goal", subtitle: "We want you to never forget to brush your teeth", description: "Let's find out how!", symbol: "face.smiling.inverse")
+            OnboardingPage(title: "Cleeth's Goal", subtitle: "We want you to never forget to brush your teeth", description: "Let's find out how!", symbol: "face.smiling")
             
             OnboardingPage(title: "Brush Timer", subtitle: "Use the integrated timer to track the time for each brush", description: "Just click on the Play button", symbol: "play.circle.fill")
             
@@ -38,7 +38,7 @@ struct OnboardingView: View {
                             
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
                                 .frame(width: 200,height: 60)
-                                .foregroundStyle(Color(.cleethDarkGreen))
+                                .foregroundStyle(Color(. cleethGreen))
                             
                             Text("Get Started!")
                                 .foregroundStyle(Color(.white))
@@ -48,7 +48,7 @@ struct OnboardingView: View {
                             
                         }
                     })
-                    .padding(.bottom,50.0)
+                    .padding(.bottom,75.0)
                     
                 }
             }
@@ -71,15 +71,15 @@ struct OnboardingPage : View {
         VStack(alignment: .center){
             
             Text(title)
-                .foregroundStyle(Color(.cleethGreen))
+                .foregroundStyle(Color(.white))
                 .font(.largeTitle)
                 .bold()
                 .padding(.top, 100.0)
                 .padding([.trailing,.leading],30.0)
             
             Text(subtitle)
-                .foregroundStyle(Color(.cleethGreen))
-                .font(.title)
+                .foregroundStyle(Color(.white))
+                .font(.title2)
                 .bold()
                 .multilineTextAlignment(.center)
                 .padding(.top, 20.0)
@@ -91,11 +91,11 @@ struct OnboardingPage : View {
                 .resizable()
                 .scaledToFit()
                 .foregroundStyle(Color(.cleethGreen))
-                .padding(.top, -50.0)
+                .padding(.top, -100.0)
                 .padding([.leading,.trailing], 100.0)
             
             Text(description)
-                .foregroundStyle(Color(.cleethGreen))
+                .foregroundStyle(Color(.white))
                 .font(.title3)
                 .bold()
                 .italic()

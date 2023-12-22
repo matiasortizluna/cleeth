@@ -121,7 +121,7 @@ struct SettingsView: View {
                     HStack {
                         Text("App Version")
                         Spacer()
-                        Text("1.0")
+                        Text("1.1")
                     }
                 }
                 
