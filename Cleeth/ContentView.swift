@@ -36,6 +36,7 @@ struct ContentView: View {
         .accentColor(Color(.cleethGreen))
         .fullScreenCover(isPresented: self.$showOnboardingView, content: {
             OnboardingView(showOnboardingView: self.$showOnboardingView)
+                .background(Color(.cleethDarkGreen))
         })
         
     }
