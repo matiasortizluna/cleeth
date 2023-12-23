@@ -15,6 +15,7 @@
 		0F28560B2B0C151E00F84763 /* ClearCalendarEventsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F28560A2B0C151E00F84763 /* ClearCalendarEventsView.swift */; };
 		0F2E8F2129A036F400C68D69 /* NotificationsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F2E8F2029A036F400C68D69 /* NotificationsView.swift */; };
 		0F46EED32B35F6230018F474 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F46EED22B35F6230018F474 /* OnboardingView.swift */; };
+		0F5A1C672B372AAA00D1917F /* SyncRemindersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F5A1C662B372AAA00D1917F /* SyncRemindersView.swift */; };
 		0F64F7DD2B0A5FBE009E657E /* SyncCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */; };
 		0F64F7DF2B0A6063009E657E /* ClearStatisticsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */; };
 		0F7158952B364EDC0028DBC6 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F7158942B364EDC0028DBC6 /* EmailHelper.swift */; };
@@ -43,6 +44,7 @@
 		0F28560A2B0C151E00F84763 /* ClearCalendarEventsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearCalendarEventsView.swift; sourceTree = "<group>"; };
 		0F2E8F2029A036F400C68D69 /* NotificationsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationsView.swift; sourceTree = "<group>"; };
 		0F46EED22B35F6230018F474 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		0F5A1C662B372AAA00D1917F /* SyncRemindersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncRemindersView.swift; sourceTree = "<group>"; };
 		0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SyncCalendarView.swift; sourceTree = "<group>"; };
 		0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClearStatisticsView.swift; sourceTree = "<group>"; };
 		0F7158942B364EDC0028DBC6 /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
@@ -136,11 +138,11 @@
 			children = (
 				0F794D6C299E6ACA00B0FC0A /* SettingsView.swift */,
 				0F2E8F2029A036F400C68D69 /* NotificationsView.swift */,
-				0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */,
-				0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */,
-				0F28560A2B0C151E00F84763 /* ClearCalendarEventsView.swift */,
 				0FD0AD6A2B0B81A100565501 /* AboutView.swift */,
 				0FD1E5CC2B0BDC44007638AD /* PrivacyPolicyView.swift */,
+				0F5A1C682B372AB700D1917F /* Calendar View */,
+				0F5A1C692B372AD800D1917F /* Reminders View */,
+				0F64F7DE2B0A6063009E657E /* ClearStatisticsView.swift */,
 			);
 			path = "Settings View";
 			sourceTree = "<group>";
@@ -151,6 +153,23 @@
 				0F46EED22B35F6230018F474 /* OnboardingView.swift */,
 			);
 			path = OnboardingView;
+			sourceTree = "<group>";
+		};
+		0F5A1C682B372AB700D1917F /* Calendar View */ = {
+			isa = PBXGroup;
+			children = (
+				0F64F7DC2B0A5FBE009E657E /* SyncCalendarView.swift */,
+				0F28560A2B0C151E00F84763 /* ClearCalendarEventsView.swift */,
+			);
+			path = "Calendar View";
+			sourceTree = "<group>";
+		};
+		0F5A1C692B372AD800D1917F /* Reminders View */ = {
+			isa = PBXGroup;
+			children = (
+				0F5A1C662B372AAA00D1917F /* SyncRemindersView.swift */,
+			);
+			path = "Reminders View";
 			sourceTree = "<group>";
 		};
 		0F8566C32B07B510006482C0 /* Views */ = {
@@ -261,6 +280,7 @@
 				0FDE54432B0A29E400FA4D5B /* EventModel.swift in Sources */,
 				0F46EED32B35F6230018F474 /* OnboardingView.swift in Sources */,
 				0F06EE6B2806366700770031 /* CleethApp.swift in Sources */,
+				0F5A1C672B372AAA00D1917F /* SyncRemindersView.swift in Sources */,
 				0F794D69299E6A4300B0FC0A /* BrushView.swift in Sources */,
 				0FD89A302B083EC20013D0BA /* NotificationModel.swift in Sources */,
 				0F7158952B364EDC0028DBC6 /* EmailHelper.swift in Sources */,

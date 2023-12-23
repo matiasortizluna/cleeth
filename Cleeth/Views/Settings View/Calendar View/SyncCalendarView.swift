@@ -32,7 +32,7 @@ struct SyncCalendarView: View {
             
             Button("Yes, Sync Now") {
                 print("Sync with Calendar Confirmation Dialog Button Tapped")
-                //self.eventModel.deleteEvents()
+                self.eventModel.deleteEvents()
                 self.eventModel.addEventsToCalendar()
             }
             .keyboardShortcut(.defaultAction)

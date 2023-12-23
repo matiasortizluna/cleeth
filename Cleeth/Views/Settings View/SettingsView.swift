@@ -47,6 +47,8 @@ struct SettingsView: View {
                     
                     SyncCalendarView()
                     
+                    SyncRemindersView()
+                    
                 }
                 
                 Section(header: Text("Information")) {
@@ -100,7 +102,7 @@ struct SettingsView: View {
                             })
                         }, label: {
                             HStack{
-                                Image(systemName: "envelope.fill")
+                                Image(systemName: "envelope.badge")
                                     .foregroundStyle(Color(.cleethGreen))
                                 Text("Feedback & Support")
                                     .foregroundStyle(Color.primary)
