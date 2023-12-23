@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ClearCalendarEventsView: View {
+struct ClearEventsView: View {
     
     var eventModel : EventModel = EventModel()
     @State var showingDialogClearEventsFromCalendar : Bool = false
@@ -15,20 +15,20 @@ struct ClearCalendarEventsView: View {
     var body: some View {
         ZStack{
             Button(action: {
-                print("Clear Events from Calendar button pressed")
+                print("Clear Cleeth Events from Calendar and Reminders App button pressed")
                 self.showingDialogClearEventsFromCalendar.toggle()
             }){
                 HStack{
                     Image(systemName: "trash")
-                    Text("Clear Events from Calendar")
+                    Text("Clear Cleeth Events from Calendar and Reminders App")
                 }
             }
             .foregroundColor(.red)
-            .confirmationDialog("Are you sure you want to delete all Events to Brush Your Teeth from your Calendar?", isPresented: self.$showingDialogClearEventsFromCalendar, titleVisibility: .visible, actions: {
+            .confirmationDialog("Are you sure you want to delete all Clear Cleeth Events to Brush Your Teeth from Calendar and Reminders App?", isPresented: self.$showingDialogClearEventsFromCalendar, titleVisibility: .visible, actions: {
                 
                 
                 Button("Yes, Delete All", role: .destructive) {
-                    print("Yes, Delete All Events from Calendar")
+                    print("Yes, Delete All Clear Cleeth Events from Calendar and Reminders App")
                     self.eventModel.deleteEvents()
                 }
                 .keyboardShortcut(.defaultAction)
@@ -42,7 +42,7 @@ struct ClearCalendarEventsView: View {
 }
 
 #Preview {
-    ClearCalendarEventsView()
+    ClearEventsView()
         .environmentObject(BrushModel())
         .environmentObject(NotificationModel())
 }

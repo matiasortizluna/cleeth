@@ -3,6 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>NSCalendarsFullAccessUsageDescription</key>
-	<string>Please Allow Cleeth to create Calendar Events</string>
+	<string>Please Allow Cleeth to create Reminders Events</string>
+	<key>NSCalendarsUsageDescription</key>
+	<string>Please Allow Cleeth to create Reminders Events</string>
+	<key>NSCalendarsWriteOnlyAccessUsageDescription</key>
+	<string>Please Allow Cleeth to create Reminders Events</string>
+	<key>NSRemindersFullAccessUsageDescription</key>
+	<string>Please Allow Cleeth to create Reminders Events</string>
+	<key>NSRemindersUsageDescription</key>
+	<string>Please Allow Cleeth to create Reminders Events</string>
 </dict>
 </plist>

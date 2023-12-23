@@ -10,15 +10,15 @@ import SwiftUI
 struct SyncRemindersView: View {
     
     var eventModel : EventModel = EventModel()
-    @State var showingDialogEventCalendar : Bool = false
+    @State var showingDialogEventReminders : Bool = false
     
     var body: some View {
         
         Button(action: {
             print("Sync Reminders Button tapped!")
-            self.eventModel.requestAccess()
+            self.eventModel.requestAccessForReminders()
             print("Function Requesting Access Success")
-            self.showingDialogEventCalendar.toggle()
+            self.showingDialogEventReminders.toggle()
         }){
             HStack{
                 Image(systemName: "list.bullet.clipboard")
@@ -28,12 +28,12 @@ struct SyncRemindersView: View {
             }
             
         }
-        .confirmationDialog("Do you want to Sync with Reminders?", isPresented: self.$showingDialogEventCalendar, titleVisibility: .visible, actions: {
+        .confirmationDialog("Do you want to Sync with Reminders?", isPresented: self.$showingDialogEventReminders, titleVisibility: .visible, actions: {
             
             Button("Yes, Sync Now") {
                 print("Sync with Reminders Confirmation Dialog Button Tapped")
-                self.eventModel.deleteEvents()
-                self.eventModel.addEventsToCalendar()
+                self.eventModel.deleteRemindersEvents()
+                self.eventModel.addEventsToReminders()
             }
             .keyboardShortcut(.defaultAction)
             

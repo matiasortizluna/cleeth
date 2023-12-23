@@ -51,7 +51,7 @@ struct SettingsView: View {
                     
                 }
                 
-                Section(header: Text("Information")) {
+                Section(header: Text("App Information")) {
                     
                     NavigationLink(destination: AboutView()){
                         HStack{
@@ -116,7 +116,7 @@ struct SettingsView: View {
                     
                     //ClearStatisticsView()
                     
-                    ClearCalendarEventsView()
+                    ClearEventsView()
                 }
                 
                 Section(){

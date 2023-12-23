@@ -13,7 +13,7 @@ class EventModel {
     let eventStore  = EKEventStore()
     let todayDate : Date = Date()
     
-    func requestAccess() {
+    func requestAccessForCalendar() {
         let status = EKEventStore.authorizationStatus(for: .event)
         if status == .authorized {
             print("EKEventStore access already granted.")
@@ -27,7 +27,6 @@ class EventModel {
             }
         }
     }
-    
     
     func addEventsToCalendar() -> Void {
         
@@ -100,12 +99,115 @@ class EventModel {
             print("Error saving event in calendar. \(e)")
             return
         }
+    }
+    
+    func requestAccessForReminders() {
+        let status = EKEventStore.authorizationStatus(for: .reminder)
+        if status == .authorized {
+            print("EKEventStore access for Reminders already granted.")
+        } else {
+            eventStore.requestFullAccessToEvents { success, error in
+                if success && error == nil {
+                    print("EKEventStore access for Reminders has been granted.")
+                } else {
+                    print("EKEventStore access for Reminders request failed with error: \(error?.localizedDescription ?? "Unknown error")")
+                }
+            }
+        }
+    }
+    
+    func addEventsToReminders() -> Void {
         
+        let timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
+        let duration : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")/60
+        
+        var date : Date = UserDefaults.standard.object(forKey: "date1") as! Date
+        var hour : Int = 0
+        var minute : Int = 0
+        
+        if(1 <= timesPerDay){
+            hour = Calendar.current.component(.hour, from: date)
+            minute = Calendar.current.component(.minute, from: date)
+            self.addEventToReminders(title: "Cleeth: 1st Brush Of The Day! (1/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+        }
+        
+        if(2 <= timesPerDay){
+            date = UserDefaults.standard.object(forKey: "date2") as! Date
+            hour = Calendar.current.component(.hour, from: date)
+            minute = Calendar.current.component(.minute, from: date)
+            //self.addEventToReminders(title: "Cleeth: 2nd Brush Of The Day! (2/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+        }
+        
+        if(3 <= timesPerDay){
+            date = UserDefaults.standard.object(forKey: "date3") as! Date
+            hour = Calendar.current.component(.hour, from: date)
+            minute = Calendar.current.component(.minute, from: date)
+            self.addEventToReminders(title: "Cleeth: 3rd Brush Of The Day! (3/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+        }
+        
+        if(4 <= timesPerDay){
+            date = UserDefaults.standard.object(forKey: "date4") as! Date
+            hour = Calendar.current.component(.hour, from: date)
+            minute = Calendar.current.component(.minute, from: date)
+            self.addEventToReminders(title: "Cleeth: 4th Brush Of The Day! (4/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+        }
+        
+        if(5 <= timesPerDay){
+            date = UserDefaults.standard.object(forKey: "date5") as! Date
+            hour = Calendar.current.component(.hour, from: date)
+            minute = Calendar.current.component(.minute, from: date)
+            self.addEventToReminders(title: "Cleeth: 5th Brush Of The Day! (5/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+        }
+        
+        if(6 <= timesPerDay){
+            date = UserDefaults.standard.object(forKey: "date6") as! Date
+            hour = Calendar.current.component(.hour, from: date)
+            minute = Calendar.current.component(.minute, from: date)
+            self.addEventToReminders(title: "Cleeth: 6th Brush Of The Day! (6/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+        }
+    }
+    
+    func addEventToReminders(title: String, startHour: Int, startMinute: Int, duration: Int) -> Void {
+        
+        let newEvent = EKReminder(eventStore: self.eventStore)
+        
+        newEvent.title = title
+        newEvent.calendar = self.eventStore.defaultCalendarForNewReminders()
+        print(self.eventStore.defaultCalendarForNewReminders())
+        print(self.eventStore.defaultCalendarForNewEvents)
+        //newEvent.startDateComponents = DateComponents(year: Calendar.current.component(.year, from: Date()), month: Calendar.current.component(.month, from: Date()), day: Calendar.current.component(.day, from: Date()), hour: startHour,minute: startMinute)
+        
+        //newEvent.dueDateComponents = DateComponents(year: newEvent.startDateComponents!.year, month: newEvent.startDateComponents!.month, day: newEvent.startDateComponents!.day, hour: newEvent.startDateComponents!.hour, minute: newEvent.startDateComponents!.minute)
+        
+        print(newEvent)
+        
+        //let alarm = EKAlarm(relativeOffset: TimeInterval(-60 * 5))
+        //newEvent.addAlarm(alarm)
+        
+        //let recurrenceRule = EKRecurrenceRule(recurrenceWith: EKRecurrenceFrequency.daily, interval: 1, end: EKRecurrenceEnd(end: Calendar.current.date(byAdding: .month, value: 1, to: newEvent.completionDate!)!))
+        //newEvent.recurrenceRules = [recurrenceRule]
+        
+        do {
+            try eventStore.save(newEvent,
+                    commit: true)
+        } catch let error {
+                print("Reminder failed with error \(error.localizedDescription)")
+        }
+
+    }
+    
+    
+    func deleteEvents() -> Void {
+        self.deleteCalendarEvents()
+        self.deleteRemindersEvents()
+    }
+    
+    func deleteRemindersEvents() -> Void {
         
         
     }
     
-    func deleteEvents() -> Void {
+    func deleteCalendarEvents() -> Void {
         
         let eventStore = EKEventStore()
         
