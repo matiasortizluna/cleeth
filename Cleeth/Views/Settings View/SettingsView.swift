@@ -47,7 +47,7 @@ struct SettingsView: View {
                     
                     SyncCalendarView()
                     
-                    SyncRemindersView()
+                    //SyncRemindersView()
                     
                 }
                 
