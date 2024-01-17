@@ -32,7 +32,7 @@ struct SyncRemindersView: View {
             
             Button("Yes, Sync Now") {
                 print("Sync with Reminders Confirmation Dialog Button Tapped")
-                self.eventModel.deleteRemindersEvents()
+                //self.eventModel.deleteRemindersEvents()
                 self.eventModel.addEventsToReminders()
             }
             .keyboardShortcut(.defaultAction)

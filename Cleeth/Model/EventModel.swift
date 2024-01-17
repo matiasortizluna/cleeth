@@ -191,12 +191,14 @@ class EventModel {
         let newEvent = EKReminder(eventStore: self.eventStore)
         
         newEvent.title = title
+        print("newEvent1 \(newEvent)")
         newEvent.calendar = self.eventStore.defaultCalendarForNewReminders()
+        print("newEvent2 \(newEvent)")
         //newEvent.startDateComponents = DateComponents(year: Calendar.current.component(.year, from: Date()), month: Calendar.current.component(.month, from: Date()), day: Calendar.current.component(.day, from: Date()), hour: startHour,minute: startMinute)
         
         //newEvent.dueDateComponents = DateComponents(year: newEvent.startDateComponents!.year, month: newEvent.startDateComponents!.month, day: newEvent.startDateComponents!.day, hour: newEvent.startDateComponents!.hour, minute: newEvent.startDateComponents!.minute)
         
-        print(newEvent)
+        print("newEvent2 \(newEvent)")
         
         //let alarm = EKAlarm(relativeOffset: TimeInterval(-60 * 5))
         //newEvent.addAlarm(alarm)
