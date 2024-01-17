@@ -12,5 +12,7 @@
 	<string>Please Allow Cleeth to create Reminders Events</string>
 	<key>NSRemindersUsageDescription</key>
 	<string>Please Allow Cleeth to create Reminders Events</string>
+	<key></key>
+	<string></string>
 </dict>
 </plist>

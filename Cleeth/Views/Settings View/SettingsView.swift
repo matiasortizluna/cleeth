@@ -47,7 +47,7 @@ struct SettingsView: View {
                     
                     SyncCalendarView()
                     
-                    //SyncRemindersView()
+                    SyncRemindersView()
                     
                 }
                 
@@ -124,7 +124,7 @@ struct SettingsView: View {
                     HStack {
                         Text("App Version")
                         Spacer()
-                        Text("1.1")
+                        Text("1.2P")
                     }
                 }
                 

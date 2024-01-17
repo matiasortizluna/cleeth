@@ -101,12 +101,31 @@ class EventModel {
         }
     }
     
+    
+    func deleteCalendarEvents() -> Void {
+        let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
+        let existingEvents = eventStore.events(matching: predicate)
+        
+        for event in existingEvents {
+            if event.title.contains("Cleeth"){
+                do {
+                    try eventStore.remove(event, span: .futureEvents)
+                } catch let error as NSError {
+                    print("Failed to save event with error : \(error)")
+                }
+                print("Removed Event")
+            }else{
+                print("Event does not start with Cleeth")
+            }
+        }
+    }
+    
     func requestAccessForReminders() {
         let status = EKEventStore.authorizationStatus(for: .reminder)
         if status == .authorized {
             print("EKEventStore access for Reminders already granted.")
         } else {
-            eventStore.requestFullAccessToEvents { success, error in
+            eventStore.requestFullAccessToReminders { success, error in
                 if success && error == nil {
                     print("EKEventStore access for Reminders has been granted.")
                 } else {
@@ -135,7 +154,7 @@ class EventModel {
             date = UserDefaults.standard.object(forKey: "date2") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
-            //self.addEventToReminders(title: "Cleeth: 2nd Brush Of The Day! (2/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
+            self.addEventToReminders(title: "Cleeth: 2nd Brush Of The Day! (2/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
         
         if(3 <= timesPerDay){
@@ -173,8 +192,6 @@ class EventModel {
         
         newEvent.title = title
         newEvent.calendar = self.eventStore.defaultCalendarForNewReminders()
-        print(self.eventStore.defaultCalendarForNewReminders())
-        print(self.eventStore.defaultCalendarForNewEvents)
         //newEvent.startDateComponents = DateComponents(year: Calendar.current.component(.year, from: Date()), month: Calendar.current.component(.month, from: Date()), day: Calendar.current.component(.day, from: Date()), hour: startHour,minute: startMinute)
         
         //newEvent.dueDateComponents = DateComponents(year: newEvent.startDateComponents!.year, month: newEvent.startDateComponents!.month, day: newEvent.startDateComponents!.day, hour: newEvent.startDateComponents!.hour, minute: newEvent.startDateComponents!.minute)
@@ -189,31 +206,29 @@ class EventModel {
         
         do {
             try eventStore.save(newEvent,
-                    commit: true)
+                                commit: true)
         } catch let error {
-                print("Reminder failed with error \(error.localizedDescription)")
+            print("Reminder failed with error \(error.localizedDescription)")
         }
-
+        
     }
     
     
     func deleteEvents() -> Void {
         self.deleteCalendarEvents()
-        self.deleteRemindersEvents()
+        self.deleteRemindersEvents(complete: true)
+        self.deleteRemindersEvents(complete: false)
     }
     
-    func deleteRemindersEvents() -> Void {
+    func deleteRemindersEvents(complete : Bool = false) -> Void {
+        var predicate : NSPredicate;
+        if (complete){
+            predicate = self.eventStore.predicateForCompletedReminders(withCompletionDateStarting: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, ending: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
+        }else{
+            predicate = self.eventStore.predicateForIncompleteReminders(withDueDateStarting: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, ending: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
+        }
         
-        
-    }
-    
-    func deleteCalendarEvents() -> Void {
-        
-        let eventStore = EKEventStore()
-        
-        let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
         let existingEvents = eventStore.events(matching: predicate)
-        
         for event in existingEvents {
             if event.title.contains("Cleeth"){
                 do {
@@ -226,7 +241,6 @@ class EventModel {
                 print("Event does not start with Cleeth")
             }
         }
-        
         
     }
     
