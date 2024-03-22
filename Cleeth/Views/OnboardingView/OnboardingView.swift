@@ -12,50 +12,41 @@ struct OnboardingView: View {
     @Binding var showOnboardingView : Bool
     
     var body: some View {
-        
         TabView(content: {
             OnboardingPage(title: "Cleeth's Goal", subtitle: "We want you to never forget to brush your teeth", description: "Let's find out how!", symbol: "face.smiling")
             
             OnboardingPage(title: "Brush Timer", subtitle: "Use the integrated timer to track the time for each brush", description: "Just click on the Play button", symbol: "play.circle.fill")
             
-            OnboardingPage(title: "Default Timer", subtitle: "Change the default time for each brush ", description: "Set this up on Settings", symbol: "timer.circle.fill")
+            OnboardingPage(title: "Default Timer", subtitle: "Change the default time for each brush", description: "Set this up on Settings", symbol: "timer.circle.fill")
             
             OnboardingPage(title: "Push Notifications", subtitle: "Choose how many notifications you want to receive per day", description: "Set this up on Settings", symbol: "bell.badge.fill")
             
             OnboardingPage(title: "Sync with Calendar", subtitle: "Create events on your calendar for brushing your teeth", description: "Set this up on Settings", symbol: "calendar.circle.fill")
-            
-            ZStack(){
-                OnboardingPage(title: "Feel Ready?",subtitle: "Let's start to create this new habit!", description: "", symbol: "checkmark.seal.fill")
+            ZStack {
+                OnboardingPage(title: "Feel Ready?", subtitle: "Let's start to create this new habit!", description: "", symbol: "checkmark.seal.fill")
                 
-                VStack(){
+                VStack {
                     Spacer()
-                    
+                
                     Button(action: {
                         self.showOnboardingView = false
-                    }, label: {
-                        
-                        ZStack(){
-                            
+                    }) {
+                        ZStack {
                             RoundedRectangle(cornerSize: CGSize(width: 20, height: 20))
-                                .frame(width: 200,height: 60)
-                                .foregroundStyle(Color(. cleethGreen))
-                            
+                                .frame(width: 200, height: 60)
+                                .foregroundStyle(Color(.cleethGreen))
                             Text("Get Started!")
                                 .foregroundStyle(Color(.white))
-                                .font(.system(size: 20.0)).bold()
+                                .font(.system(size: 20.0))
                                 .bold()
                                 .padding(20.0)
-                            
                         }
-                    })
-                    .padding(.bottom,75.0)
-                    
+                    }
+                    .padding(.bottom, 75.0)
                 }
             }
-            
         })
         .tabViewStyle(PageTabViewStyle())
-        
     }
 }
 
@@ -67,9 +58,7 @@ struct OnboardingPage : View {
     var symbol: String
     
     var body: some View {
-        
-        VStack(alignment: .center){
-            
+        VStack(alignment: .center) {
             Text(title)
                 .foregroundStyle(Color(.white))
                 .font(.largeTitle)
@@ -104,7 +93,6 @@ struct OnboardingPage : View {
                 .padding([.trailing,.leading],50.0)
             
             Spacer()
-            
         }
     }
 }

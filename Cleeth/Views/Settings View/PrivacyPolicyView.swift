@@ -8,12 +8,10 @@
 import SwiftUI
 
 struct PrivacyPolicyView: View {
+    
     var body: some View {
-        
         ScrollView(.vertical){
-            
             VStack(alignment: .leading){
-                
                 Text("Last updated: November 2023")
                     .italic()
                     .font(.body)
@@ -26,8 +24,6 @@ struct PrivacyPolicyView: View {
                 Text("This document outlines the policies on the collection, use, and disclosure of personal data when utilizing the Cleeth App and the choices available to users.")
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
-                
-                
             }
             
             VStack(alignment: .leading){
@@ -45,7 +41,6 @@ struct PrivacyPolicyView: View {
             }
             
             VStack(alignment: .leading){
-                
                 Text("Data & Information Collection and Use")
                     .font(.title2)
                     .bold()
@@ -76,19 +71,17 @@ struct PrivacyPolicyView: View {
                 }
                 .padding([.leading,.trailing, .bottom],10)
                 
-                
                 Text("Device’s Brushing Preferences for the correct functionality of the Cleeth App are stored locally when modifying default settings in the app's options. This information never leaves your device.")
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
                 
                 HStack{
-                    Text("Data & Information Usage Policy:")                        
+                    Text("Data & Information Usage Policy:")
                         .font(.headline)
                         .bold()
                     Spacer()
                 }
                 .padding([.leading,.trailing, .bottom],10)
-                
                 
                 Text("Device’s Brushing Preferences for the correct functionality of the Cleeth App are stored locally and used to save personal preferences, ensuring the best user experience. This includes setting the brush time, the number of notifications, and the notification times.")
                     .font(.body)
@@ -102,11 +95,9 @@ struct PrivacyPolicyView: View {
                 }
                 .padding([.leading,.trailing, .bottom],10)
                 
-                
                 Text("As the app does not collect information, and the Device’s Brushing Preferences for the correct functionality of the Cleeth App are stored locally and never leave your device, consent can be revoked by deleting the app, removing all information, including your Device’s Brushing Preferences.")
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
-                
                 
                 HStack{
                     Text("Data & Information Retention Policy:")
@@ -120,7 +111,6 @@ struct PrivacyPolicyView: View {
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
                 
-                
                 HStack{
                     Text("Data & Information Deletion Policy:")
                         .font(.headline)
@@ -128,7 +118,6 @@ struct PrivacyPolicyView: View {
                     Spacer()
                 }
                 .padding([.leading,.trailing, .bottom],10)
-                
                 
                 Text("As the app does not collect information, and the Device’s Brushing Preferences for the correct functionality of the Cleeth App are stored locally and never leave your device, you can delete any information by removing the app, including your Device’s Brushing Preferences.")
                     .font(.body)
@@ -141,7 +130,6 @@ struct PrivacyPolicyView: View {
                     Spacer()
                 }
                 .padding([.leading,.trailing, .bottom],10)
-                
                 
                 Text("Nobody, including the author and developer, has access to your Device’s Brushing Preferences for the correct functionality of the Cleeth App.")
                     .font(.body)
@@ -172,26 +160,24 @@ struct PrivacyPolicyView: View {
                     .padding([.leading,.trailing, .bottom],10)
                 
                 HStack{
-                    Text("Data & Information Policy Changes:")                        
+                    Text("Data & Information Policy Changes:")
                         .font(.headline)
                         .bold()
                     Spacer()
                 }
                 .padding([.leading,.trailing, .bottom],10)
-                
                 
                 Text("While Policy Changes are expected to be minor, the Cleeth App reserves the right to make modifications to its Privacy Policy at its sole discretion. Users' continued use of the app following any updates to the Privacy Policy implies their acceptance of such changes.")
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
                 
                 HStack{
-                    Text("Data & Information Collection, Usage, Selling, or Sharing to Third Parties:")                        
+                    Text("Data & Information Collection, Usage, Selling, or Sharing to Third Parties:")
                         .font(.headline)
                         .bold()
                     Spacer()
                 }
                 .padding([.leading,.trailing, .bottom],10)
-                
                 
                 Text("Cleeth does not collect any data or Device’s Brushing Preferences for the correct functionality of the Cleeth App, stored locally and never leaving the device. Therefore, nothing is sold or shared with third parties.")
                     .font(.body)
@@ -205,7 +191,6 @@ struct PrivacyPolicyView: View {
                 }
                 .padding([.leading,.trailing, .bottom],10)
                 
-                
                 Text("By using the Cleeth App, users consent to the local storage of their Device’s Brushing Preferences for the correct functionality of the Cleeth App for the duration of app usage.")
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
@@ -218,25 +203,22 @@ struct PrivacyPolicyView: View {
                 }
                 .padding([.leading,.trailing, .bottom],10)
                 
-                
                 Text("The user hereby indemnifies Cleeth App, its developer, and the author of the Privacy Policy, Matias Ortiz Luna, undertaking to keep them indemnified against any losses, damages, costs, liabilities, and expenses incurred or suffered by the user arising from the use of this app or any breach by the user of any provision of these terms of use. This indemnity also extends to cover any claims asserting that the user has breached any provision of these terms of use.")
                     .font(.body)
                     .padding([.leading,.trailing, .bottom],10)
                 
                 HStack{
-                    Text("Contact Information:")                        
+                    Text("Contact Information:")
                         .font(.headline)
                         .bold()
                     Spacer()
                 }
                 .padding([.leading,.trailing, .bottom],10)
                 
-                
                 Text("For any questions about this Privacy Policy, contact its author and the Cleeth App developer at matiasortizluna.contacto@gmail.com.")
                     .font(.body)
                     .padding([.leading,.trailing],10)
                     .padding(.bottom,10)
-                
             }
         }
         .navigationTitle("Privacy Policy")

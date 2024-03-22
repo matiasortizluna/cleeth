@@ -15,30 +15,22 @@ struct SettingsView: View {
     @Environment(\.requestReview) var requestReview
     
     var body: some View {
-        
         NavigationView {
-            
-            List(){
-                
+            List() {
                 Section(header: Text("Time for Every Brush")) {
-                    
                     Picker("Time", systemImage: "timer", selection:  self.$time, content: {
-                        
                         ForEach(2..<11, id: \.self, content: {
                             Text("\($0) minutes")
                         })
                     })
-                    
-                    
                 }
                 .onChange(of: self.time, {
                     self.brushTimeModel.setNewValueForClock(new_value: self.time*60)
                 })
                 
                 Section(header: Text("Brush Options")) {
-                    
-                    NavigationLink(destination: NotificationsView()){
-                        HStack{
+                    NavigationLink(destination: NotificationsView()) {
+                        HStack {
                             Image(systemName: "bell.badge")
                                 .foregroundStyle(Color(.cleethGreen))
                             Text("Notifications")
@@ -48,13 +40,11 @@ struct SettingsView: View {
                     SyncCalendarView()
                     
                     SyncRemindersView()
-                    
                 }
                 
                 Section(header: Text("App Information")) {
-                    
-                    NavigationLink(destination: AboutView()){
-                        HStack{
+                    NavigationLink(destination: AboutView()) {
+                        HStack {
                             Image(systemName: "info.circle")
                                 .foregroundStyle(Color(.cleethGreen))
                             Text("About")
@@ -62,8 +52,8 @@ struct SettingsView: View {
                         .foregroundStyle(Color.primary)
                     }
                     
-                    NavigationLink(destination: PrivacyPolicyView()){
-                        HStack{
+                    NavigationLink(destination: PrivacyPolicyView()) {
+                        HStack {
                             Image(systemName: "person.crop.circle")
                                 .foregroundStyle(Color(.cleethGreen))
                             Text("Privacy Policy")
@@ -71,9 +61,9 @@ struct SettingsView: View {
                         .foregroundStyle(Color.primary)
                     }
                     
-                    HStack{
+                    HStack {
                         ShareLink(items: [URL(string: "https://apps.apple.com/tr/app/cleeth/id6472682824")!], subject: Text("Download Cleeth Now!"), message: Text("Hey! Check out this app that helps you remember to brush your teeth!") ,label: {
-                            HStack{
+                            HStack {
                                 Image(systemName: "square.and.arrow.up")
                                     .foregroundStyle(Color(.cleethGreen))
                                 Text("Share")
@@ -82,11 +72,11 @@ struct SettingsView: View {
                         })
                     }
                     
-                    HStack{
+                    HStack {
                         Button(action: {
                             requestReview()
                         }, label: {
-                            HStack{
+                            HStack {
                                 Image(systemName: "star")
                                     .foregroundStyle(Color(.cleethGreen))
                                 Text("Evaluate")
@@ -95,46 +85,40 @@ struct SettingsView: View {
                         .foregroundStyle(Color.primary)
                     }
                     
-                    HStack{
+                    HStack {
                         Button(action: {
                             EmailHelper.shared.sendEmail(subject: "Inquiry about Cleeth 🪥", body: "Hello Matias!\nI want to contact you ...", to: "matiasortizluna.contacto@gmail.com", completion: {_ in
                                 print("MailView presented")
                             })
                         }, label: {
-                            HStack{
+                            HStack {
                                 Image(systemName: "envelope.badge")
                                     .foregroundStyle(Color(.cleethGreen))
                                 Text("Feedback & Support")
                                     .foregroundStyle(Color.primary)
                             }
                         })
-                        
                     }
                 }
                 
-                Section(header: Text("Reset Options")){
-                    
+                Section(header: Text("Reset Options")) {
                     //ClearStatisticsView()
                     
                     ClearEventsView()
                 }
                 
-                Section(){
-                    
+                Section() {
                     HStack {
                         Text("App Version")
                         Spacer()
                         Text("1.2P")
                     }
                 }
-                
             }
             .listStyle(.insetGrouped)
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
-            
         }
-        
     }
 }
 

@@ -33,15 +33,10 @@ class NotificationModel : ObservableObject {
     
     func setNewValuesOfNotifications() -> Void {
         self.date1 = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 1)))!
-        
         self.date2  = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 2)))!
-        
         self.date3  = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 3)))!
-        
         self.date4  = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 4)))!
-        
         self.date5  = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 5)))!
-        
         self.date6 = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 6)))!
     }
     
@@ -92,7 +87,7 @@ class NotificationModel : ObservableObject {
         }
     }
     
-    func scheduleNotifications(){
+    func scheduleNotifications() {
         var hour = 0
         var minute = 0
         
@@ -101,55 +96,47 @@ class NotificationModel : ObservableObject {
         
         UserDefaults.standard.setValue(self.timesPerDay, forKey: "timesPerDay")
         
-        if(1 <= self.timesPerDay){
+        if (1 <= self.timesPerDay) {
             hour = Calendar.current.component(.hour, from: date1)
             minute = Calendar.current.component(.minute, from: date1)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 1st Brush of the Day! (1/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
             UserDefaults.standard.setValue(date1, forKey: "date1")
         }
-        
-        if(2 <= self.timesPerDay){
+        if (2 <= self.timesPerDay) {
             hour = Calendar.current.component(.hour, from: date2)
             minute = Calendar.current.component(.minute, from: date2)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 2nd Brush of the Day! (2/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
             UserDefaults.standard.setValue(date2, forKey: "date2")
         }
-        
-        if(3 <= self.timesPerDay){
+        if (3 <= self.timesPerDay) {
             hour = Calendar.current.component(.hour, from: date3)
             minute = Calendar.current.component(.minute, from: date3)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 3rd Brush of the Day! (3/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
             UserDefaults.standard.setValue(date3, forKey: "date3")
         }
-        
-        if(4 <= self.timesPerDay){
+        if (4 <= self.timesPerDay) {
             hour = Calendar.current.component(.hour, from: date4)
             minute = Calendar.current.component(.minute, from: date4)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 4th Brush of the Day! (4/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
             UserDefaults.standard.setValue(date4, forKey: "date4")
         }
-        
-        if(5 <= self.timesPerDay){
+        if (5 <= self.timesPerDay) {
             hour = Calendar.current.component(.hour, from: date5)
             minute = Calendar.current.component(.minute, from: date5)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 5th Brush of the Day! (5/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
             UserDefaults.standard.setValue(date5, forKey: "date5")
         }
-        
-        if(6 <= self.timesPerDay){
+        if (6 <= self.timesPerDay) {
             hour = Calendar.current.component(.hour, from: date6)
             minute = Calendar.current.component(.minute, from: date6)
             scheduleNotification(title: "Time To Brush Your Teeth!", body: "Don't miss your 6th Brush of the Day! (6/\(timesPerDay))", badge: 1, hour: hour, minute: minute)
             UserDefaults.standard.setValue(date6, forKey: "date6")
         }
-        
     }
-    
     
     func scheduleNotification(title: String, body: String, badge: UInt,hour: Int, minute: Int) {
         self.setBadgeCount(newValue: 1)
         
-        // Define the content
         let content = UNMutableNotificationContent()
         content.title = title
         content.body = body
@@ -179,5 +166,4 @@ class NotificationModel : ObservableObject {
             }
         })
     }
-    
 }

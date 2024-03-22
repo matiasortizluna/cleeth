@@ -29,7 +29,6 @@ class EventModel {
     }
     
     func addEventsToCalendar() -> Void {
-        
         let timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
         let duration : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")/60
         
@@ -37,41 +36,37 @@ class EventModel {
         var hour : Int = 0
         var minute : Int = 0
         
-        if(1 <= timesPerDay){
+        if (1 <= timesPerDay) {
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToCalendar(title: "Cleeth: 1st Brush Of The Day! (1/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(2 <= timesPerDay){
+        if (2 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date2") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToCalendar(title: "Cleeth: 2nd Brush Of The Day! (2/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(3 <= timesPerDay){
+        if (3 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date3") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToCalendar(title: "Cleeth: 3rd Brush Of The Day! (3/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
         
-        if(4 <= timesPerDay){
+        if (4 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date4") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToCalendar(title: "Cleeth: 4th Brush Of The Day! (4/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(5 <= timesPerDay){
+        if (5 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date5") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToCalendar(title: "Cleeth: 5th Brush Of The Day! (5/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(6 <= timesPerDay){
+        if (6 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date6") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
@@ -80,7 +75,6 @@ class EventModel {
     }
     
     func addEventToCalendar(title: String, startHour: Int, startMinute: Int, duration: Int) -> Void {
-        
         let newEvent = EKEvent(eventStore: self.eventStore)
         newEvent.calendar = eventStore.defaultCalendarForNewEvents
         newEvent.title = title
@@ -101,7 +95,6 @@ class EventModel {
         }
     }
     
-    
     func deleteCalendarEvents() -> Void {
         let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
         let existingEvents = eventStore.events(matching: predicate)
@@ -114,7 +107,7 @@ class EventModel {
                     print("Failed to save event with error : \(error)")
                 }
                 print("Removed Event")
-            }else{
+            } else {
                 print("Event does not start with Cleeth")
             }
         }
@@ -136,7 +129,6 @@ class EventModel {
     }
     
     func addEventsToReminders() -> Void {
-        
         let timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
         let duration : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")/60
         
@@ -144,41 +136,36 @@ class EventModel {
         var hour : Int = 0
         var minute : Int = 0
         
-        if(1 <= timesPerDay){
+        if (1 <= timesPerDay) {
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToReminders(title: "Cleeth: 1st Brush Of The Day! (1/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(2 <= timesPerDay){
+        if (2 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date2") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToReminders(title: "Cleeth: 2nd Brush Of The Day! (2/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(3 <= timesPerDay){
+        if (3 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date3") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToReminders(title: "Cleeth: 3rd Brush Of The Day! (3/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(4 <= timesPerDay){
+        if (4 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date4") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToReminders(title: "Cleeth: 4th Brush Of The Day! (4/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(5 <= timesPerDay){
+        if (5 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date5") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
             self.addEventToReminders(title: "Cleeth: 5th Brush Of The Day! (5/\(timesPerDay))", startHour: hour, startMinute: minute, duration: duration)
         }
-        
-        if(6 <= timesPerDay){
+        if (6 <= timesPerDay) {
             date = UserDefaults.standard.object(forKey: "date6") as! Date
             hour = Calendar.current.component(.hour, from: date)
             minute = Calendar.current.component(.minute, from: date)
@@ -187,7 +174,6 @@ class EventModel {
     }
     
     func addEventToReminders(title: String, startHour: Int, startMinute: Int, duration: Int) -> Void {
-        
         let newEvent = EKReminder(eventStore: self.eventStore)
         
         newEvent.title = title
@@ -212,9 +198,7 @@ class EventModel {
         } catch let error {
             print("Reminder failed with error \(error.localizedDescription)")
         }
-        
     }
-    
     
     func deleteEvents() -> Void {
         self.deleteCalendarEvents()
@@ -224,9 +208,9 @@ class EventModel {
     
     func deleteRemindersEvents(complete : Bool = false) -> Void {
         var predicate : NSPredicate;
-        if (complete){
+        if (complete) {
             predicate = self.eventStore.predicateForCompletedReminders(withCompletionDateStarting: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, ending: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
-        }else{
+        } else {
             predicate = self.eventStore.predicateForIncompleteReminders(withDueDateStarting: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, ending: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
         }
         
@@ -239,11 +223,9 @@ class EventModel {
                     print("Failed to save event with error : \(error)")
                 }
                 print("Removed Event")
-            }else{
+            } else {
                 print("Event does not start with Cleeth")
             }
         }
-        
     }
-    
 }

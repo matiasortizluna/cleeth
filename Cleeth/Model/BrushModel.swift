@@ -16,7 +16,7 @@ class BrushModel : ObservableObject {
     
     @Published var fillTopTeethBar: CGFloat = 0.5
     @Published var fillBottomTeethBar: CGFloat = 0.0
-        
+    
     @Published var playStopButton: Bool = false
     
     @Published var animatePlay : Bool = false
@@ -24,8 +24,8 @@ class BrushModel : ObservableObject {
     @Published var animateFinish : Bool = false
     
     @Published var hideTabBar: Bool = false
-        
-    func restartClock(){
+    
+    func restartClock() {
         self.playStopButton.toggle()
         
         self.fillTopTeethBar = 0.5
@@ -37,7 +37,7 @@ class BrushModel : ObservableObject {
         self.hideTabBar.toggle()
     }
     
-    func startClock(){
+    func startClock() {
         self.playStopButton.toggle()
         
         self.fillTopTeethBar = 1.0
@@ -46,32 +46,31 @@ class BrushModel : ObservableObject {
         self.hideTabBar.toggle()
     }
     
-    func finishClock(){
+    func finishClock() {
         self.restartClock()
         self.hideTabBar.toggle()
         
         Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: {_ in
             self.hideTabBar.toggle()
         })
-        
     }
     
-    func setNewValueForClock(new_value : Int){
+    func setNewValueForClock(new_value : Int) {
         self.clockDefaultValue = new_value
         self.clockCurrentValue = self.clockDefaultValue
         UserDefaults.standard.set(self.clockDefaultValue, forKey: "clockDefaultValue")
-        UserDefaults.standard.set(self.clockCurrentValue, forKey: "clockCurrentValue")   
+        UserDefaults.standard.set(self.clockCurrentValue, forKey: "clockCurrentValue")
     }
     
     func secondsToMinutesSeconds() -> (Int, Int) {
         return ((self.clockCurrentValue % 3600) / 60, (self.clockCurrentValue % 3600) % 60)
     }
-
+    
     public func convertDurationToString() -> String {
         let (minute, second) = self.secondsToMinutesSeconds()
         return "\(self.getMinute(minute: minute))\(self.getSecond(second: second))"
     }
-        
+    
     private func getMinute(minute: Int) -> String {
         if (minute == 0) {
             return "00:"
@@ -83,7 +82,7 @@ class BrushModel : ObservableObject {
     }
     
     private func getSecond(second: Int) -> String {
-        if (second == 0){
+        if (second == 0) {
             return "00"
         }
         if (second < 10) {
@@ -91,5 +90,4 @@ class BrushModel : ObservableObject {
         }
         return "\(second)"
     }
-    
 }

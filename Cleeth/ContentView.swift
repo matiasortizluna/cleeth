@@ -8,11 +8,11 @@
 import SwiftUI
 
 struct ContentView: View {
+    
     @AppStorage("showOnboardingView") var showOnboardingView : Bool = true
-        
+    
     var body: some View {
-        
-        TabView(selection: .constant(2)){
+        TabView(selection: .constant(2)) {
             
             //            StatisticsView()
             //                .tabItem {
@@ -23,7 +23,8 @@ struct ContentView: View {
             BrushView()
                 .tabItem {
                     Label("Brush", systemImage: "face.smiling")
-                }.tag(2)
+                }
+                .tag(2)
             //.badge(12)
             
             SettingsView()
@@ -31,14 +32,14 @@ struct ContentView: View {
                     Label("Settings", systemImage: "gear")
                 }
                 .tag(3)
-            
         }
         .accentColor(Color(.cleethGreen))
-        .fullScreenCover(isPresented: self.$showOnboardingView, content: {
-            OnboardingView(showOnboardingView: self.$showOnboardingView)
-                .background(Color(.cleethDarkGreen))
-        })
-        
+        .fullScreenCover(
+            isPresented: self.$showOnboardingView,
+            content: {
+                OnboardingView(showOnboardingView: self.$showOnboardingView)
+                    .background(Color(.cleethDarkGreen))
+            })
     }
 }
 
@@ -49,4 +50,3 @@ struct ContentView_Previews: PreviewProvider {
             .environmentObject(NotificationModel())
     }
 }
-

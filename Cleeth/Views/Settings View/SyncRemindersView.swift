@@ -13,7 +13,6 @@ struct SyncRemindersView: View {
     @State var showingDialogEventReminders : Bool = false
     
     var body: some View {
-        
         Button(action: {
             print("Sync Reminders Button tapped!")
             self.eventModel.requestAccessForReminders()
@@ -26,10 +25,8 @@ struct SyncRemindersView: View {
                 Text("Sync with Reminders")
                     .foregroundStyle(Color.primary)
             }
-            
         }
         .confirmationDialog("Do you want to Sync with Reminders?", isPresented: self.$showingDialogEventReminders, titleVisibility: .visible, actions: {
-            
             Button("Yes, Sync Now") {
                 print("Sync with Reminders Confirmation Dialog Button Tapped")
                 //self.eventModel.deleteRemindersEvents()
@@ -46,7 +43,6 @@ struct SyncRemindersView: View {
             Text("Cleeth will create a Reminder for each time of the day you set to be reminded to Brush your Teeth on the Reminders App (1 month).\n\nNote: Previous Events set up by Cleeth will be Deleted and Replaced with the new configuration.")
         })
     }
-    
 }
 
 #Preview {

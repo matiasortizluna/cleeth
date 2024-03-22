@@ -13,7 +13,6 @@ struct SyncCalendarView: View {
     @State var showingDialogEventCalendar : Bool = false
     
     var body: some View {
-        
         Button(action: {
             print("Sync Calendar Button tapped!")
             self.eventModel.requestAccessForCalendar()
@@ -26,10 +25,8 @@ struct SyncCalendarView: View {
                 Text("Sync with Calendar")
                     .foregroundStyle(Color.primary)
             }
-            
         }
         .confirmationDialog("Do you want to Sync with Calendar?", isPresented: self.$showingDialogEventCalendar, titleVisibility: .visible, actions: {
-            
             Button("Yes, Sync Now") {
                 print("Sync with Calendar Confirmation Dialog Button Tapped")
                 self.eventModel.deleteCalendarEvents()
@@ -47,7 +44,6 @@ struct SyncCalendarView: View {
         })
     }
 }
-
 
 struct SyncCalendarView_Previews: PreviewProvider {
     static var previews: some View {

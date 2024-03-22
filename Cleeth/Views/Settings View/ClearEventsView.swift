@@ -24,9 +24,7 @@ struct ClearEventsView: View {
                 }
             }
             .foregroundColor(.red)
-            .confirmationDialog("Are you sure you want to delete all Clear Cleeth Events to Brush Your Teeth from your Calendar & Reminders?", isPresented: self.$showingDialogClearEventsFromCalendar, titleVisibility: .visible, actions: {
-                
-                
+            .confirmationDialog("Are you sure you want to delete all Clear Cleeth Events to Brush Your Teeth from your Calendar & Reminders?",isPresented: self.$showingDialogClearEventsFromCalendar, titleVisibility: .visible, actions: {
                 Button("Yes, Delete All", role: .destructive) {
                     print("Yes, Delete All Clear Cleeth Events from Calendar and Reminders App")
                     self.eventModel.deleteEvents()

@@ -9,10 +9,11 @@ import Foundation
 import MessageUI
 
 class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
+    
     public static let shared = EmailHelper()
     
-    func sendEmail(subject:String, body:String, to:String, completion: @escaping (Bool) -> Void){
-        if MFMailComposeViewController.canSendMail(){
+    func sendEmail(subject:String, body:String, to:String, completion: @escaping (Bool) -> Void) {
+        if MFMailComposeViewController.canSendMail() {
             let picker = MFMailComposeViewController()
             picker.setSubject(subject)
             picker.setMessageBody(body, isHTML: true)

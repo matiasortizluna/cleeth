@@ -16,7 +16,6 @@ struct CleethApp: App {
     @Environment(\.scenePhase) private var scenePhase
     
     init(){
-        
         UserDefaults.standard.register(
             defaults: [
                 "clockDefaultValue": 180,
@@ -31,7 +30,6 @@ struct CleethApp: App {
                 "notificationsProvided" : false
             ]
         )
-        
     }
     
     var body: some Scene {
@@ -40,9 +38,7 @@ struct CleethApp: App {
                 .environmentObject(brushTimeModel)
                 .environmentObject(notificationViewModel)
                 .onAppear(perform: {
-                    
                     Helper.requestNotificationsPermission()
-                    
                 })
         }
         .onChange(of: scenePhase) { phase in
@@ -50,7 +46,5 @@ struct CleethApp: App {
                 UNUserNotificationCenter.current().setBadgeCount(0)
             }
         }
-        
     }
-    
 }
