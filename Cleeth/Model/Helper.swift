@@ -11,6 +11,11 @@ import MessageUI
 
 class Helper {
     
+    /// Requests permission for user notifications.
+    ///
+    /// This method requests authorization for notifications with options for alert, sound, and badge.
+    /// Upon receiving the user's response, it updates the user defaults with the notification permission status.
+    ///
     static func requestNotificationsPermission() {
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound, .badge]) { granted, error in
             DispatchQueue.main.async {

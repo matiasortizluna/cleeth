@@ -12,6 +12,14 @@ class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
     
     public static let shared = EmailHelper()
     
+    /// Sends an email.
+    ///
+    /// - Parameters:
+    ///   - subject: The subject of the email.
+    ///   - body: The body of the email.
+    ///   - to: The recipient of the email.
+    ///   - completion: A completion handler that takes a boolean indicating if the email can be sent.
+    ///
     func sendEmail(subject:String, body:String, to:String, completion: @escaping (Bool) -> Void) {
         if MFMailComposeViewController.canSendMail() {
             let picker = MFMailComposeViewController()
@@ -25,6 +33,13 @@ class EmailHelper: NSObject, MFMailComposeViewControllerDelegate {
         completion(MFMailComposeViewController.canSendMail())
     }
     
+    /// Dismisses the mail compose view controller.
+    ///
+    /// - Parameters:
+    ///   - controller: The MFMailComposeViewController instance.
+    ///   - result: The result of the email composition.
+    ///   - error: An optional error that occurred during composition.
+    ///   
     internal func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
         controller.dismiss(animated: true, completion: nil)
     }

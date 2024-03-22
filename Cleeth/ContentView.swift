@@ -35,6 +35,7 @@ struct ContentView: View {
         }
         .accentColor(Color(.cleethGreen))
         .fullScreenCover(
+            // In case this is the first time the app's open, show the Onboarding View
             isPresented: self.$showOnboardingView,
             content: {
                 OnboardingView(showOnboardingView: self.$showOnboardingView)

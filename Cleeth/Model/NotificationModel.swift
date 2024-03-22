@@ -23,14 +23,26 @@ class NotificationModel : ObservableObject {
     @Published var date5 : Date = UserDefaults.standard.object(forKey: "date5") as! Date
     @Published var date6 : Date = UserDefaults.standard.object(forKey: "date6") as! Date
     
+    /// Returns the current badge count.
+    ///
+    /// - Returns: The current badge count as an integer.
+    ///
     func getBadgeCount() -> Int {
         return self.badgeCount
     }
     
+    /// Sets a new badge count value.
+    ///
+    /// - Parameter newValue: The new badge count value.
+    ///
     func setBadgeCount(newValue: Int) -> Void {
         self.badgeCount = newValue
     }
     
+    /// Calculates and sets new notification dates based on the number of times per day.
+    ///
+    /// This function sets the notification dates (`date1` to `date6`) based on the `timesPerDay` and specific times.
+    ///
     func setNewValuesOfNotifications() -> Void {
         self.date1 = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 1)))!
         self.date2  = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 2)))!
@@ -40,6 +52,13 @@ class NotificationModel : ObservableObject {
         self.date6 = Calendar.current.date(from: DateComponents(hour: self.calculateTimesBasedOnNumberOfTimes(timesPerDay: self.timesPerDay, time: 6)))!
     }
     
+    /// Calculates the notification time based on the number of times per day and a specific time.
+    ///
+    /// - Parameters:
+    ///   - timesPerDay: The number of times to schedule notifications per day.
+    ///   - time: The specific time index for the notification.
+    /// - Returns: The hour value for the notification time.
+    ///
     func calculateTimesBasedOnNumberOfTimes(timesPerDay: Int, time: Int) -> Int {
         switch (timesPerDay, time) {
         case (2, 1):
@@ -87,6 +106,11 @@ class NotificationModel : ObservableObject {
         }
     }
     
+    /// Schedules notifications based on the set notification times.
+    ///
+    /// This function schedules notifications using `scheduleNotification(title:body:badge:hour:minute:)` method
+    /// based on the `timesPerDay` and specific notification times (`date1` to `date6`).
+    ///
     func scheduleNotifications() {
         var hour = 0
         var minute = 0
@@ -134,6 +158,15 @@ class NotificationModel : ObservableObject {
         }
     }
     
+    /// Schedules a single notification with the provided details.
+    ///
+    /// - Parameters:
+    ///   - title: The title of the notification.
+    ///   - body: The body text of the notification.
+    ///   - badge: The badge count for the notification.
+    ///   - hour: The hour component of the notification time.
+    ///   - minute: The minute component of the notification time.
+    ///   
     func scheduleNotification(title: String, body: String, badge: UInt,hour: Int, minute: Int) {
         self.setBadgeCount(newValue: 1)
         

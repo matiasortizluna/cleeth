@@ -13,6 +13,8 @@ class EventModel {
     let eventStore  = EKEventStore()
     let todayDate : Date = Date()
     
+    /// Requests access to the user's calendar.
+    ///
     func requestAccessForCalendar() {
         let status = EKEventStore.authorizationStatus(for: .event)
         if status == .authorized {
@@ -28,6 +30,8 @@ class EventModel {
         }
     }
     
+    /// Adds events to the user's calendar based on saved user settings.
+    ///
     func addEventsToCalendar() -> Void {
         let timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
         let duration : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")/60
@@ -74,6 +78,14 @@ class EventModel {
         }
     }
     
+    /// Adds a single event to the user's calendar.
+    ///
+    /// - Parameters:
+    ///   - title: The title of the event.
+    ///   - startHour: The hour component of the event's start time.
+    ///   - startMinute: The minute component of the event's start time.
+    ///   - duration: The duration of the event in minutes.
+    ///
     func addEventToCalendar(title: String, startHour: Int, startMinute: Int, duration: Int) -> Void {
         let newEvent = EKEvent(eventStore: self.eventStore)
         newEvent.calendar = eventStore.defaultCalendarForNewEvents
@@ -95,6 +107,8 @@ class EventModel {
         }
     }
     
+    /// Deletes all 'Cleeth' events from the user's calendar.
+    ///
     func deleteCalendarEvents() -> Void {
         let predicate = eventStore.predicateForEvents(withStart: Calendar.current.date(from: DateComponents(year: 2023, month: 11, day: 19))!, end: Calendar.current.date(from: DateComponents(year: 2024, month: 3, day: 1))!, calendars: [eventStore.defaultCalendarForNewEvents ?? EKCalendar()])
         let existingEvents = eventStore.events(matching: predicate)
@@ -113,6 +127,8 @@ class EventModel {
         }
     }
     
+    /// Requests access to the user's reminders.
+    ///
     func requestAccessForReminders() {
         let status = EKEventStore.authorizationStatus(for: .reminder)
         if status == .authorized {
@@ -128,6 +144,8 @@ class EventModel {
         }
     }
     
+    /// Adds events to the user's reminders based on saved user settings.
+    ///
     func addEventsToReminders() -> Void {
         let timesPerDay : Int = UserDefaults.standard.integer(forKey: "timesPerDay")
         let duration : Int = UserDefaults.standard.integer(forKey: "clockDefaultValue")/60
@@ -173,6 +191,14 @@ class EventModel {
         }
     }
     
+    /// Adds a single event to the user's reminders.
+    ///
+    /// - Parameters:
+    ///   - title: The title of the reminder.
+    ///   - startHour: The hour component of the reminder's start time.
+    ///   - startMinute: The minute component of the reminder's start time.
+    ///   - duration: The duration of the reminder in minutes.
+    ///
     func addEventToReminders(title: String, startHour: Int, startMinute: Int, duration: Int) -> Void {
         let newEvent = EKReminder(eventStore: self.eventStore)
         
@@ -200,12 +226,18 @@ class EventModel {
         }
     }
     
+    /// Deletes all 'Cleeth' events from both calendar and reminders.
+    ///
     func deleteEvents() -> Void {
         self.deleteCalendarEvents()
         self.deleteRemindersEvents(complete: true)
         self.deleteRemindersEvents(complete: false)
     }
     
+    /// Deletes all 'Cleeth' events from the user's reminders.
+    ///
+    /// - Parameter complete: Flag to specify whether to delete completed or incomplete reminders.
+    /// 
     func deleteRemindersEvents(complete : Bool = false) -> Void {
         var predicate : NSPredicate;
         if (complete) {
